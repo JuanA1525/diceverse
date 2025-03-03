@@ -1,0 +1,119 @@
+@import url("../global.css");
+
+section.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 60vh;
+    padding: 0 2em;
+}
+
+.main-content-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-content-header>img {
+    width: 20%;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+
+.main-content-header h2 {
+    font: bold 2.2em var(--pixelify);
+    padding-left: 0.3em;
+}
+
+.dice-selection {
+    width: 100%;
+    background: var(--secondary);
+    padding: 1.5em;
+    border-radius: 1em;
+    margin-top: 0;
+}
+
+.dice-selection h3 {
+    font: bold 1.2em var(--poppins);
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.dice-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8em;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.5em;
+    width: 100%;
+}
+
+.dice-option {
+    background: var(--white);
+    padding: 0.8em;
+    border-radius: 0.8em;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.dice-option h4 {
+    font: bold 0.8em var(--poppins);
+    color: var(--black);
+    text-align: center;
+}
+
+.dice-option.selected {
+    background: var(--dark);
+}
+
+.dice-option.selected h4 {
+    color: var(--white);
+}
+
+.create-game-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    width: 100%;
+    margin: 2em auto 0;
+    padding: 0.8em;
+    background: var(--black);
+    border: none;
+    border-radius: 0.5em;
+    color: var(--light);
+    font: 1.2em var(--poppins);
+    cursor: pointer;
+}
+
+.create-game-btn img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.game-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.game-name-input {
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    background: var(--secondary);
+    font: 1.2em var(--poppins);
+    width: 100%;
+}
