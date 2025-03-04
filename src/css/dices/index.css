@@ -1,0 +1,96 @@
+@import url("../global.css");
+
+section.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  padding: 0 2em 2em 2em;
+  margin-bottom: 2em;
+}
+
+section.main-content .main-content__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  width: 100%;
+}
+
+section.main-content .main-content__header>img {
+  width: 20%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+
+section.main-content .main-content__header h2 {
+  font: bold 2.2em var(--pixelify);
+  padding-left: 0.3em;
+}
+
+section.main-content .main-content__dices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
+  padding: 1em 0;
+  margin: 2em 0;
+  gap: 1em;
+  box-shadow: var(--shadow);
+  background: var(--secondary);
+  overflow-y: scroll;
+}
+
+section.main-content .main-content__dices .dice-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  width: calc(50% - 2em);
+  height: auto;
+  aspect-ratio: 1/1;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.dice-card h3 {
+  font: bold 1.1em var(--poppins);
+  color: var(--black);
+}
+
+.dice-card>img {
+  width: 40%;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font: 1em var(--poppins);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.create-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  width: 55%;
+  margin: 0 auto;
+  font: 1.2em var(--poppins);
+  color: var(--light);
+  text-decoration: none;
+  background: var(--black);
+}
+
+.create-button>img {
+  width: 25%;
+  height: auto;
+  aspect-ratio: 1/1;
+  padding: 0.5em;
+}
