@@ -48,6 +48,8 @@ section.main-content {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  height: 40vh;
+  overflow: hidden;
 }
 .options-container label {
   font: bold 1.2em "Poppins", sans-serif;
@@ -97,6 +99,17 @@ section.main-content {
   display: flex;
   flex-direction: column;
   gap: 0.8em;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.option-card-container {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.8em;
+  touch-action: pan-y pinch-zoom;
+  width: 100%;
 }
 
 .option-card {
@@ -107,6 +120,31 @@ section.main-content {
   border-radius: 0.8em;
   font: 1em "Poppins", sans-serif;
   color: #000000;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  background: #ffffff;
+  position: relative;
+  width: 100%;
+  word-break: break-word;
+}
+.option-card.swiping {
+  transform: translateX(-100px);
+}
+
+.delete-indicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  background: #ff4747;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  font: 1em "Poppins", sans-serif;
+  border-radius: 0 0.8em 0.8em 0;
 }
 
 .create-dice-btn {
@@ -118,16 +156,48 @@ section.main-content {
   cursor: pointer;
   transition: transform 0.2s ease;
   gap: 0.5em;
-  padding: 1em;
+  padding: 0.8em 1em;
   background: #000000;
   color: #ffffff;
   font: 1.2em "Poppins", sans-serif;
   text-decoration: none;
+  flex: 1;
+  height: auto;
 }
 .create-dice-btn:hover {
   transform: scale(1.02);
 }
-.create-dice-btn img {
-  width: 2em;
-  height: 2em;
+
+.create-group {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+  position: sticky;
+  bottom: 5em;
+  margin-top: 1em;
+  padding: 0.5em;
+  background: transparent;
+}
+
+.roulette-mode {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.8em 1em;
+  background: #ccc;
+  border-radius: 0.8em;
+  flex: 1;
+  height: auto;
+}
+.roulette-mode input[type=checkbox] {
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+}
+.roulette-mode label {
+  font: 1.2em "Poppins", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
 }/*# sourceMappingURL=create.css.map */

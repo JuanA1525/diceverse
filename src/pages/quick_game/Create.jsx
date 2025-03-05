@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../sass/global.css";
-import "../../sass/quick_game/create.css"; // Update this line
+import "../../sass/quick_game/create.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import createIcon from "../../assets/icons/create-light.png";
-import { SwipeableOption } from '../../components/SwipeableOption'
+import { SwipeableOption } from '../../components/SwipeableOption';
 
 export function QuickGameCreate() {
+    const navigate = useNavigate();
     const [diceName, setDiceName] = useState("");
     const [options, setOptions] = useState([]);
     const [newOption, setNewOption] = useState("");
-    const navigate = useNavigate();
+    const [isRoulette, setIsRoulette] = useState(false);
 
     useEffect(() => {
         // Check if there's already a quick game
@@ -22,6 +23,10 @@ export function QuickGameCreate() {
             navigate("/quick_game/play");
         }
     }, [navigate]);
+
+    const determineType = (options) => {
+        return options.every(opt => !isNaN(opt)) ? "number" : "text";
+    };
 
     const addOption = () => {
         if (newOption.trim()) {
@@ -45,7 +50,6 @@ export function QuickGameCreate() {
             return;
         }
 
-        // Create the dice first
         const processedOptions = determineType(options) === "number"
             ? options.map(opt => Number(opt))
             : options;
@@ -55,31 +59,24 @@ export function QuickGameCreate() {
             options: processedOptions,
             isSelected: false,
             type: determineType(options),
-            isShown: false, // Quick game dice shouldn't show in dice list
-            currentValue: processedOptions[0]
+            isShown: false,
+            currentValue: processedOptions[0],
+            isRoulette
         };
 
-        // Save the dice
         const dices = JSON.parse(localStorage.getItem('dices') || '[]');
         localStorage.setItem('dices', JSON.stringify([...dices, newDice]));
 
-        // Create the quick game
         const quickGame = {
             name: 'quick_game',
             dices: [newDice],
-            isShown: false // Quick game shouldn't show in games list
+            isShown: false
         };
 
-        // Save the game
         const games = JSON.parse(localStorage.getItem('games') || '[]');
         localStorage.setItem('games', JSON.stringify([...games, quickGame]));
 
-        // Navigate to play
         navigate("/quick_game/play");
-    };
-
-    const determineType = (options) => {
-        return options.every(opt => !isNaN(opt)) ? "number" : "text";
     };
 
     return (
@@ -132,10 +129,22 @@ export function QuickGameCreate() {
                         </div>
                     </div>
 
-                    <button className="create-dice-btn" onClick={createDice}>
-                        <img src={createIcon} alt="Create Dice" />
-                        Create
-                    </button>
+                    <div className="create-group">
+                        <div className="roulette-mode">
+                            <input
+                                type="checkbox"
+                                id="roulette"
+                                checked={isRoulette}
+                                onChange={(e) => setIsRoulette(e.target.checked)}
+                            />
+                            <label htmlFor="roulette">Roulette Mode</label>
+                        </div>
+
+                        <button className="create-dice-btn" onClick={createDice}>
+                            <img src={createIcon} alt="Create Dice" />
+                            Create
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>

@@ -114,15 +114,42 @@ section.main-content
     @include flex-center
     @include button-base
     gap: 0.5em
-    padding: 1em
+    padding: 0.8em 1em // Standardized padding
     background: $black
     color: $white
     font: 1.2em $font-poppins
     text-decoration: none
+    flex: 1
+    height: auto // Allow natural height
+
+.create-group
+    display: flex
+    align-items: stretch // Changed from center to stretch
+    justify-content: space-between
+    gap: 1em
+    width: 100%
     position: sticky
     bottom: calc(4em + 1em)
     margin-top: 1em
+    padding: 0.5em
+    background: transparent
 
-    img
-        width: 2em
-        height: 2em
+.roulette-mode
+    display: flex
+    align-items: center
+    gap: 1em
+    padding: 0.8em 1em // Adjusted padding to match button
+    background: $secondary
+    border-radius: 0.8em
+    flex: 1
+    height: auto // Allow height to match button
+
+    input[type="checkbox"]
+        width: 1.5em
+        height: 1.5em
+        cursor: pointer
+
+    label
+        font: 1.2em $font-poppins
+        color: rgba(0, 0, 0, 0.7)
+        cursor: pointer

@@ -6,6 +6,7 @@ import "../../sass/quick_game/play.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import rollIcon from "../../assets/icons/roll-light.png";
+import Swal from 'sweetalert2' // You'll need to install this: npm install sweetalert2
 
 export function QuickGamePlay() {
     const navigate = useNavigate();
@@ -54,9 +55,44 @@ export function QuickGamePlay() {
             ...game,
             dices: game.dices.map((dice) => {
                 if (!hasSelectedDices || dice.isSelected) {
+                    const randomIndex = Math.floor(Math.random() * dice.options.length);
+                    const newValue = dice.options[randomIndex];
+
+                    if (dice.isRoulette) {
+                        // Show alert for rolled option
+                        Swal.fire({
+                            title: 'Option Rolled!',
+                            text: `The option rolled was: ${newValue}`,
+                            icon: 'info',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Remove the rolled option in roulette mode
+                        const newOptions = dice.options.filter((_, i) => i !== randomIndex);
+
+                        // Check if this was the last option
+                        if (newOptions.length === 0) {
+                            Swal.fire({
+                                title: 'Quick Game Done!',
+                                text: 'Thanks for playing Diceverse!',
+                                icon: 'success',
+                                confirmButtonText: 'Finish'
+                            }).then(() => {
+                                finishGame();
+                            });
+                        }
+
+                        return {
+                            ...dice,
+                            options: newOptions,
+                            currentValue: newValue
+                        };
+                    }
+
                     return {
                         ...dice,
-                        currentValue: dice.options[Math.floor(Math.random() * dice.options.length)]
+                        currentValue: newValue
                     };
                 }
                 return dice;
