@@ -15,7 +15,7 @@ export function Navbar() {
       <Link to="/pages/dices/index">
         <img src={diceIcon} alt="dice-icon" />
       </Link>
-      <Link to="/pages/games/mygames">
+      <Link to="/pages/games/index">
         <img src={gamesIcon} alt="games-icon" />
       </Link>
       <Link to="/">
