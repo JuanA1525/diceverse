@@ -137,7 +137,7 @@ export function QuickGameCreate() {
                 checked={isRoulette}
                 onChange={(e) => setIsRoulette(e.target.checked)}
               />
-              <label htmlFor="roulette">Roulette Mode</label>
+              <label htmlFor="roulette">Roulette</label>
             </div>
 
             <button className="create-dice-btn" onClick={createDice}>
