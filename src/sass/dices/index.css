@@ -53,6 +53,17 @@ section.main-content .main-content__dices .dice-card {
   padding: 1em;
   border-radius: 1em;
   box-shadow: 0 1em 1em rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+section.main-content .main-content__dices .dice-card:hover {
+  transform: scale(1.05);
+}
+section.main-content .main-content__dices .dice-card.selected {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+  border: 2px solid #ff6b6b;
 }
 section.main-content .main-content__dices .dice-card h3 {
   font: bold 1.1em "Poppins", sans-serif;
@@ -60,6 +71,14 @@ section.main-content .main-content__dices .dice-card h3 {
 }
 section.main-content .main-content__dices .dice-card > img {
   width: 40%;
+  height: auto;
+}
+section.main-content .main-content__dices .dice-card .current-value {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  font: bold 1em "Poppins", sans-serif;
+  color: #ff6b6b;
 }
 
 .copyright {

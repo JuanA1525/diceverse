@@ -39,6 +39,17 @@ section.main-content
             height: auto
             aspect-ratio: 1/1
             @include card-base
+            cursor: pointer
+            position: relative
+            transition: transform 0.2s ease, box-shadow 0.2s ease
+
+            &:hover
+                transform: scale(1.05)
+
+            &.selected
+                transform: scale(1.05)
+                box-shadow: 0 0 15px rgba($primary, 0.5)
+                border: 2px solid $primary
 
             h3
                 font: bold 1.1em $font-poppins
@@ -46,6 +57,14 @@ section.main-content
 
             > img
                 width: 40%
+                height: auto
+
+            .current-value
+                position: absolute
+                bottom: 0.5em
+                right: 0.5em
+                font: bold 1em $font-poppins
+                color: $primary
 
 .copyright
     @include flex-center

@@ -1,20 +1,27 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../sass/global.css";
-import "../../sass/dices/create.css";
+import "../../sass/dices/edit.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
-import gamesIcon from "../../assets/icons/games.png";
-import homeIcon from "../../assets/icons/home.png";
-import flashIcon from "../../assets/icons/flash.png";
-import helpIcon from "../../assets/icons/help.png";
 import createIcon from "../../assets/icons/create-light.png";
+import { SwipeableOption } from '../../components/SwipeableOption'
 
-export function CreateDices() {
+export function EditDice() {
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [diceName, setDiceName] = useState("");
     const [options, setOptions] = useState([]);
     const [newOption, setNewOption] = useState("");
-    const navigate = useNavigate();
+
+    useEffect(() => {
+        const dices = JSON.parse(localStorage.getItem('dices') || '[]');
+        const dice = dices.find(d => d.id === id);
+        if (dice) {
+            setDiceName(dice.id);
+            setOptions(dice.options);
+        }
+    }, [id]);
 
     const addOption = () => {
         if (newOption.trim()) {
@@ -23,40 +30,53 @@ export function CreateDices() {
         }
     };
 
-    const createDice = () => {
-        const dices = JSON.parse(localStorage.getItem('dices') || '[]');
+    const deleteDice = () => {
+        if (window.confirm('Are you sure you want to delete this dice?')) {
+            const dices = JSON.parse(localStorage.getItem('dices') || '[]');
+            const updatedDices = dices.filter(dice => dice.id !== id);
+            localStorage.setItem('dices', JSON.stringify(updatedDices));
+            navigate("/pages/dices/index");
+        }
+    };
 
-        // Check if a dice with this name already exists
-        if (dices.some(dice => dice.id === diceName)) {
+    const updateDice = () => {
+        const dices = JSON.parse(localStorage.getItem('dices') || '[]');
+        // Check if another dice already has this name (except current dice)
+        const isDuplicateName = dices.some(dice =>
+            dice.id === diceName && dice.id !== id
+        );
+
+        if (isDuplicateName) {
             alert('A dice with this name already exists!');
             return;
         }
 
-        const newDice = {
-            id: diceName,
-            options,
-            isSelected: false,
-            currentValue: options[0]
-        };
-
-        localStorage.setItem('dices', JSON.stringify([...dices, newDice]));
+        const updatedDices = dices.map(dice =>
+            dice.id === id ? {
+                ...dice,
+                id: diceName,
+                options
+            } : dice
+        );
+        localStorage.setItem('dices', JSON.stringify(updatedDices));
         navigate("/pages/dices/index");
     };
 
+    const deleteOption = (index) => {
+        setOptions(options.filter((_, i) => i !== index))
+    }
+
     return (
         <div>
-
-            {/* APP TITLE */}
             <div className="app-title">
                 <h1>Diceverse</h1>
                 <img src={logo} alt="Diceverse Logo" />
             </div>
 
-            {/* MAIN CONTENT */}
             <section className="main-content">
                 <div className="main-content__header">
                     <img src={diceIcon} alt="Dice Icon" />
-                    <h2>Create Dice</h2>
+                    <h2>Edit Dice</h2>
                 </div>
 
                 <div className="dice-form">
@@ -84,15 +104,24 @@ export function CreateDices() {
                         </div>
                         <div className="options-list">
                             {options.map((option, index) => (
-                                <div key={index} className="option-card">{option}</div>
+                                <SwipeableOption
+                                    key={index}
+                                    option={option}
+                                    onDelete={() => deleteOption(index)}
+                                />
                             ))}
                         </div>
                     </div>
 
-                    <button className="create-dice-btn" onClick={createDice}>
-                        <img src={createIcon} alt="Create Dice" />
-                        Create Dice
-                    </button>
+                    <div className="button-group">
+                        <button className="update-dice-btn" onClick={updateDice}>
+                            <img src={createIcon} alt="Update Dice" />
+                            Update Dice
+                        </button>
+                        <button className="delete-dice-btn" onClick={deleteDice}>
+                            Delete Dice
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>
