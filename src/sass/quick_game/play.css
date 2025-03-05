@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap");
+section.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 60vh;
+  padding: 0 2em;
+}
+
+.main-content__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.main-content__header > img {
+  width: 20%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.main-content__header h2 {
+  font: bold 2.2em "Pixelify Sans", sans-serif;
+  padding-left: 0.3em;
+}
+
+.quick-game-content {
+  width: 100%;
+  height: 70%;
+  background: #ccc;
+  padding: 1.5em;
+  border-radius: 1em;
+  margin-top: 2em;
+}
+.quick-game-content .quick-game-dice {
+  background: #ffffff;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quick-game-content .quick-game-dice h3 {
+  font: bold 1.2em "Poppins", sans-serif;
+  color: rgb(0, 0, 0);
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.roll-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  width: 50%;
+  margin: 0 auto;
+  font: 1.2em "Poppins", sans-serif;
+  color: #f8f8f8;
+  text-decoration: none;
+  background: #000000;
+  margin-top: 2em;
+  padding: 0.5em;
+}
+.roll-button img {
+  width: 2em;
+  height: 2em;
+  padding: 0.4em;
+  margin-left: 0.5em;
+}/*# sourceMappingURL=play.css.map */
