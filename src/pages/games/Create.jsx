@@ -22,24 +22,6 @@ export function CreateGames() {
 
     return (
         <div>
-            {/* BOTTOM NAVIGATION */}
-            <nav className="navbar">
-                <Link to="/pages/dices/index">
-                    <img src={diceIcon} alt="dice-icon" />
-                </Link>
-                <Link to="/pages/games/mygames">
-                    <img src={gamesIcon} alt="games-icon" />
-                </Link>
-                <Link to="/">
-                    <img src={homeIcon} alt="home-icon" />
-                </Link>
-                <Link to="/pages/quickgame/index">
-                    <img src={flashIcon} alt="quickgame-icon" />
-                </Link>
-                <Link to="/pages/help/index">
-                    <img src={helpIcon} alt="help-icon" />
-                </Link>
-            </nav>
 
             {/* APP TITLE */}
             <div className="app-title">

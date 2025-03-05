@@ -20,24 +20,6 @@ export function Games() {
 
     return (
         <div>
-            {/* Bottom Navigation */}
-            <nav className="navbar">
-                <Link to="/pages/dices/index">
-                    <img src={diceIcon} alt="dice-icon" />
-                </Link>
-                <Link to="/pages/games/mygames">
-                    <img src={gamesIcon} alt="games-icon" />
-                </Link>
-                <Link to="/">
-                    <img src={homeIcon} alt="home-icon" />
-                </Link>
-                <Link to="../quickgame/index.html">
-                    <img src={quickGameIcon} alt="quickgame-icon" />
-                </Link>
-                <Link to="../help/index.html">
-                    <img src={helpIcon} alt="help-icon" />
-                </Link>
-            </nav>
 
             {/* App Title */}
             <div className="app-title">
