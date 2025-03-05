@@ -57,7 +57,7 @@ export function CreateGames() {
                         </div>
                     </div>
 
-                    <button className="create-game-btn" onClick={() => navigate("/pages/games/mygames")}>
+                    <button className="create-game-btn" onClick={() => navigate("/pages/games/index")}>
                         <img src={createIcon} alt="Create Game" />
                         Create Game
                     </button>
