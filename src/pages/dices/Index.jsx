@@ -15,8 +15,8 @@ export function Dices() {
     const [dices, setDices] = useState([]);
 
     useEffect(() => {
-        const savedDices = JSON.parse(localStorage.getItem("dices") || "[]");
-        setDices(savedDices);
+        const savedDices = JSON.parse(localStorage.getItem('dices') || '[]');
+        setDices(savedDices.filter(dice => dice.isShown));
     }, []);
 
     const handleDiceClick = (diceId) => {
