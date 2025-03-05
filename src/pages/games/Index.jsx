@@ -8,6 +8,7 @@ import helpIcon from "../../assets/icons/help.png";
 import createIcon from "../../assets/icons/create-light.png";
 import "../../sass/global.css";
 import "../../sass/games/index.css";
+import { Game } from "../../components/Game";
 
 export function Games() {
     const games = [
@@ -16,6 +17,7 @@ export function Games() {
         "Custom Game 3",
         "Custom Game 4",
         "Custom Game 5",
+        "Custom Game 6",
     ];
 
     return (
@@ -36,10 +38,7 @@ export function Games() {
 
                 <div className="main-content-games">
                     {games.map((game, index) => (
-                        <Link key={index} to="" className="game-card">
-                            <h3>{game}</h3>
-                            <img src={diceIcon} alt="dice-icon" />
-                        </Link>
+                        <Game key={index} page="/pages/games/edit" name={game} imgSrc={diceIcon} imgAlt="dice-icon" />
                     ))}
                 </div>
 

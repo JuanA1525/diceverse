@@ -4,8 +4,10 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Dices } from "./pages/dices/Index";
 import { CreateDices } from "./pages/dices/Create";
+import { EditDice } from "./pages/dices/Edit";
 import { Games } from "./pages/games/Index";
 import { CreateGames } from "./pages/games/Create";
+import { EditGames } from "./pages/games/Edit";
 import { QuickGameCreate } from "./pages/quick_game/Create";
 import { QuickGamePlay } from "./pages/quick_game/Play";
 import { Help } from "./pages/help/Index";
@@ -25,10 +27,12 @@ function App() {
           {/* Dices */}
           <Route path="/pages/dices/index" element={<Dices />} />
           <Route path="/pages/dices/create" element={<CreateDices />} />
+          <Route path="/pages/dices/edit/:id" element={<EditDice />} />
 
           {/* Games */}
           <Route path="/pages/games/index" element={<Games />} />
           <Route path="/pages/games/create" element={<CreateGames />} />
+          <Route path="/pages/games/edit" element={<EditGames />} />
 
           {/* Quick Game */}
           <Route path="/quick_game/create" element={<QuickGameCreate />} />

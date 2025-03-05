@@ -37,8 +37,8 @@ section.main-content
     border-radius: 1em
     @include flex-column
     gap: 1em
-    height: 40vh // Changed from max-height to fixed height
-    overflow: hidden // Changed from overflow-y: auto
+    max-height: 40vh
+    overflow-y: auto
 
     label
         font: bold 1.2em $font-poppins
@@ -74,50 +74,58 @@ section.main-content
 .options-list
     @include flex-column
     gap: 0.8em
-    overflow-y: auto // This is where we want the scroll
-    flex: 1 // Added to take remaining space
-    width: 100%
-    padding-right: 0.5em
+    overflow-y: auto
+    max-height: 30vh
 
 .option-card-container
-    flex-shrink: 0 // Added to prevent shrinking
     position: relative
     overflow: hidden
     border-radius: 0.8em
     touch-action: pan-y pinch-zoom
-    width: 100%
 
 .option-card
     @include card-base
     border-radius: 0.8em
     font: 1em $font-poppins
     color: $black
-    padding: 1em
     transform: translateX(0)
     transition: transform 0.3s ease
     margin: 0
     z-index: 2
     background: $white
     position: relative
-    width: 100%
-    word-break: break-word
 
-    &.swiping
-        transform: translateX(-100px)
+    &:active
+        cursor: grabbing
 
 .delete-indicator
     position: absolute
     right: 0
     top: 0
     height: 100%
-    width: 100px
     background: #ff4747
     color: $white
     @include flex-center
     padding: 0 1em
     font: 1em $font-poppins
     border-radius: 0 0.8em 0.8em 0
-.create-dice-btn
+
+.option-card
+    @include card-base
+    border-radius: 0.8em
+    font: 1em $font-poppins
+    color: $black
+
+.button-group
+    display: flex
+    flex-direction: row
+    gap: 1em
+    width: 100%
+    position: sticky
+    bottom: calc(4em + 1em) // 4em for navbar + 1em spacing
+    margin-top: 1em
+
+.update-dice-btn
     @include flex-center
     @include button-base
     gap: 0.5em
@@ -126,30 +134,21 @@ section.main-content
     color: $white
     font: 1.2em $font-poppins
     text-decoration: none
-    position: sticky
-    bottom: calc(4em + 1em) // 4em for navbar + 1em spacing
-    margin-top: 1em
+    flex: 3
 
     img
         width: 2em
         height: 2em
 
-.button-group
-    @include flex-column
-    gap: 1em
-    margin-top: 1em
-    width: 100%
-
 .delete-dice-btn
     @include flex-center
     @include button-base
-    gap: 0.5em
     padding: 1em
-    background: $primary
+    background: #ff4747
     color: $white
     font: 1.2em $font-poppins
     text-decoration: none
-    width: 100%
+    flex: 1
 
     &:hover
-        background: darken($primary, 10%)
+        background: darken(#ff4747, 10%)

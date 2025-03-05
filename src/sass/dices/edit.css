@@ -52,8 +52,8 @@ section.main-content {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  height: 40vh;
-  overflow: hidden;
+  max-height: 40vh;
+  overflow-y: auto;
 }
 .options-container label {
   font: bold 1.2em "Poppins", sans-serif;
@@ -104,18 +104,14 @@ section.main-content {
   flex-direction: column;
   gap: 0.8em;
   overflow-y: auto;
-  flex: 1;
-  width: 100%;
-  padding-right: 0.5em;
+  max-height: 30vh;
 }
 
 .option-card-container {
-  flex-shrink: 0;
   position: relative;
   overflow: hidden;
   border-radius: 0.8em;
   touch-action: pan-y pinch-zoom;
-  width: 100%;
 }
 
 .option-card {
@@ -126,18 +122,15 @@ section.main-content {
   border-radius: 0.8em;
   font: 1em "Poppins", sans-serif;
   color: #000000;
-  padding: 1em;
   transform: translateX(0);
   transition: transform 0.3s ease;
   margin: 0;
   z-index: 2;
   background: #ffffff;
   position: relative;
-  width: 100%;
-  word-break: break-word;
 }
-.option-card.swiping {
-  transform: translateX(-100px);
+.option-card:active {
+  cursor: grabbing;
 }
 
 .delete-indicator {
@@ -145,7 +138,6 @@ section.main-content {
   right: 0;
   top: 0;
   height: 100%;
-  width: 100px;
   background: #ff4747;
   color: #ffffff;
   display: flex;
@@ -156,7 +148,27 @@ section.main-content {
   border-radius: 0 0.8em 0.8em 0;
 }
 
-.create-dice-btn {
+.option-card {
+  background: #ffffff;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.8em;
+  font: 1em "Poppins", sans-serif;
+  color: #000000;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  width: 100%;
+  position: sticky;
+  bottom: 5em;
+  margin-top: 1em;
+}
+
+.update-dice-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,24 +182,14 @@ section.main-content {
   color: #ffffff;
   font: 1.2em "Poppins", sans-serif;
   text-decoration: none;
-  position: sticky;
-  bottom: 5em;
-  margin-top: 1em;
+  flex: 3;
 }
-.create-dice-btn:hover {
+.update-dice-btn:hover {
   transform: scale(1.02);
 }
-.create-dice-btn img {
+.update-dice-btn img {
   width: 2em;
   height: 2em;
-}
-
-.button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  margin-top: 1em;
-  width: 100%;
 }
 
 .delete-dice-btn {
@@ -198,17 +200,16 @@ section.main-content {
   border-radius: 1em;
   cursor: pointer;
   transition: transform 0.2s ease;
-  gap: 0.5em;
   padding: 1em;
-  background: #ff6b6b;
+  background: #ff4747;
   color: #ffffff;
   font: 1.2em "Poppins", sans-serif;
   text-decoration: none;
-  width: 100%;
+  flex: 1;
 }
 .delete-dice-btn:hover {
   transform: scale(1.02);
 }
 .delete-dice-btn:hover {
-  background: #ff3838;
-}/*# sourceMappingURL=create.css.map */
+  background: #ff1414;
+}/*# sourceMappingURL=edit.css.map */
