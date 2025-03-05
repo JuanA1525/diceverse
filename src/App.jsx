@@ -6,6 +6,7 @@ import { Dices } from "./pages/dices/Index";
 import { CreateDices } from "./pages/dices/Create";
 import { Games } from "./pages/games/Index";
 import { CreateGames } from "./pages/games/Create";
+import { Help } from "./pages/help/Index";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
 
@@ -25,6 +26,7 @@ function App() {
           {/* Games */}
           <Route path="/pages/games/index" element={<Games />} />
           <Route path="/pages/games/create" element={<CreateGames />} />
+          <Route path="/pages/help/index" element={<Help />} />
         </Routes>
       </div>
     </>
