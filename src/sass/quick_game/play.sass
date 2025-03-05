@@ -11,12 +11,23 @@ section.main-content
     @include flex-center
     width: 100%
 
+    .header-text
+        @include flex-column
+        align-items: center
+        gap: 0.5em
+
+        h2
+            @include header-title
+            margin: 0
+
+        h3
+            font: 1em $font-poppins
+            color: rgba(0, 0, 0, 0.7)
+            margin: 0
+
     > img
         width: 20%
         @include image-aspect
-
-    h2
-        @include header-title
 
 .quick-game-content
     width: 100%
@@ -61,3 +72,23 @@ section.main-content
         height: 2em
         padding: 0.4em
         margin-left: 0.5em
+
+.button-group
+    @include flex-column
+    gap: 1em
+    width: 100%
+    margin-top: 1em
+
+.finish-button
+    @include flex-center
+    @include button-base
+    gap: 0.5em
+    padding: 1em
+    background: $primary
+    color: $white
+    font: 1.2em $font-poppins
+    text-decoration: none
+    width: 100%
+
+    &:hover
+        background: darken($primary, 10%)

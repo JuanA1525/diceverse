@@ -68,4 +68,35 @@ section.main-content {
   height: 2em;
   padding: 0.4em;
   margin-left: 0.5em;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.finish-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  gap: 0.5em;
+  padding: 1em;
+  background: #ff6b6b;
+  color: #ffffff;
+  font: 1.2em "Poppins", sans-serif;
+  text-decoration: none;
+  width: 100%;
+}
+.finish-button:hover {
+  transform: scale(1.02);
+}
+.finish-button:hover {
+  background: #ff3838;
 }/*# sourceMappingURL=play.css.map */

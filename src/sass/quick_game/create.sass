@@ -34,6 +34,8 @@ section.main-content
     border-radius: 1em
     @include flex-column
     gap: 1em
+    height: 40vh
+    overflow: hidden
 
     label
         font: bold 1.2em $font-poppins
@@ -69,12 +71,44 @@ section.main-content
 .options-list
     @include flex-column
     gap: 0.8em
+    overflow-y: auto
+    flex: 1
+
+.option-card-container
+    flex-shrink: 0
+    position: relative
+    overflow: hidden
+    border-radius: 0.8em
+    touch-action: pan-y pinch-zoom
+    width: 100%
 
 .option-card
     @include card-base
     border-radius: 0.8em
     font: 1em $font-poppins
     color: $black
+    transform: translateX(0)
+    transition: transform 0.3s ease
+    background: $white
+    position: relative
+    width: 100%
+    word-break: break-word
+
+    &.swiping
+        transform: translateX(-100px)
+
+.delete-indicator
+    position: absolute
+    right: 0
+    top: 0
+    height: 100%
+    width: 100px
+    background: #ff4747
+    color: $white
+    @include flex-center
+    padding: 0 1em
+    font: 1em $font-poppins
+    border-radius: 0 0.8em 0.8em 0
 
 .create-dice-btn
     @include flex-center
@@ -85,6 +119,9 @@ section.main-content
     color: $white
     font: 1.2em $font-poppins
     text-decoration: none
+    position: sticky
+    bottom: calc(4em + 1em)
+    margin-top: 1em
 
     img
         width: 2em
