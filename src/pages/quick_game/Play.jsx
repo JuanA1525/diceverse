@@ -14,7 +14,7 @@ export function QuickGamePlay() {
 
     useEffect(() => {
         const games = JSON.parse(localStorage.getItem("games") || "[]");
-        const quickGame = games.find(g => !g.isShown);
+        const quickGame = games.find(g => g.isQuick);
 
         if (!quickGame) {
             navigate("/quick_game/create");
@@ -105,7 +105,7 @@ export function QuickGamePlay() {
         const games = JSON.parse(localStorage.getItem("games") || "[]");
         const dices = JSON.parse(localStorage.getItem("dices") || "[]");
 
-        localStorage.setItem('games', JSON.stringify(games.filter(g => g.isShown)));
+        localStorage.setItem('games', JSON.stringify(games.filter(g => !g.isQuick)));
         localStorage.setItem('dices', JSON.stringify(dices.filter(d => d.isShown)));
 
         navigate("/");

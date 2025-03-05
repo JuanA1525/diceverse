@@ -17,7 +17,7 @@ export function QuickGameCreate() {
     useEffect(() => {
         // Check if there's already a quick game
         const games = JSON.parse(localStorage.getItem('games') || '[]');
-        const quickGame = games.find(game => !game.isShown);
+        const quickGame = games.find(game => game.isQuick);
 
         if (quickGame) {
             navigate("/quick_game/play");
@@ -70,7 +70,8 @@ export function QuickGameCreate() {
         const quickGame = {
             name: 'quick_game',
             dices: [newDice],
-            isShown: false
+            isShown: false,
+            isQuick: true  // Add this field
         };
 
         const games = JSON.parse(localStorage.getItem('games') || '[]');

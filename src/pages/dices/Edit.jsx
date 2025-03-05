@@ -5,7 +5,7 @@ import "../../sass/dices/edit.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import createIcon from "../../assets/icons/create-light.png";
-import { SwipeableOption } from '../../components/SwipeableOption'
+import { SwipeableOption } from "../../components/SwipeableOption";
 
 export function EditDice() {
     const { id } = useParams();
@@ -15,8 +15,8 @@ export function EditDice() {
     const [newOption, setNewOption] = useState("");
 
     useEffect(() => {
-        const dices = JSON.parse(localStorage.getItem('dices') || '[]');
-        const dice = dices.find(d => d.id === id);
+        const dices = JSON.parse(localStorage.getItem("dices") || "[]");
+        const dice = dices.find((d) => d.id === id);
         if (dice) {
             setDiceName(dice.id);
             setOptions(dice.options);
@@ -31,46 +31,49 @@ export function EditDice() {
     };
 
     const deleteDice = () => {
-        if (window.confirm('Are you sure you want to delete this dice?')) {
-            const dices = JSON.parse(localStorage.getItem('dices') || '[]');
-            const updatedDices = dices.filter(dice => dice.id !== id);
-            localStorage.setItem('dices', JSON.stringify(updatedDices));
+        if (window.confirm("Are you sure you want to delete this dice?")) {
+            const dices = JSON.parse(localStorage.getItem("dices") || "[]");
+            const updatedDices = dices.filter((dice) => dice.id !== id);
+            localStorage.setItem("dices", JSON.stringify(updatedDices));
             navigate("/pages/dices/index");
         }
     };
 
     const determineType = (options) => {
-        return options.every(opt => !isNaN(opt)) ? "number" : "text";
+        return options.every((opt) => !isNaN(opt)) ? "number" : "text";
     };
 
     const updateDice = () => {
-        const dices = JSON.parse(localStorage.getItem('dices') || '[]');
+        const dices = JSON.parse(localStorage.getItem("dices") || "[]");
 
-        if (dices.some(dice => dice.id === diceName && dice.id !== id)) {
-            alert('A dice with this name already exists!');
+        if (dices.some((dice) => dice.id === diceName && dice.id !== id)) {
+            alert("A dice with this name already exists!");
             return;
         }
 
-        const processedOptions = determineType(options) === "number"
-            ? options.map(opt => Number(opt))
-            : options;
+        const processedOptions =
+            determineType(options) === "number"
+                ? options.map((opt) => Number(opt))
+                : options;
 
-        const updatedDices = dices.map(dice =>
-            dice.id === id ? {
-                ...dice,
-                id: diceName,
-                options: processedOptions,
-                type: determineType(options),
-                currentValue: processedOptions[0]
-            } : dice
+        const updatedDices = dices.map((dice) =>
+            dice.id === id
+                ? {
+                    ...dice,
+                    id: diceName,
+                    options: processedOptions,
+                    type: determineType(options),
+                    currentValue: processedOptions[0],
+                }
+                : dice
         );
-        localStorage.setItem('dices', JSON.stringify(updatedDices));
+        localStorage.setItem("dices", JSON.stringify(updatedDices));
         navigate("/pages/dices/index");
     };
 
     const deleteOption = (index) => {
-        setOptions(options.filter((_, i) => i !== index))
-    }
+        setOptions(options.filter((_, i) => i !== index));
+    };
 
     return (
         <div>
@@ -120,12 +123,11 @@ export function EditDice() {
                     </div>
 
                     <div className="button-group">
-                        <button className="update-dice-btn" onClick={updateDice}>
-                            <img src={createIcon} alt="Update Dice" />
-                            Update Dice
-                        </button>
                         <button className="delete-dice-btn" onClick={deleteDice}>
                             Delete Dice
+                        </button>
+                        <button className="update-dice-btn" onClick={updateDice}>
+                            Update Dice
                         </button>
                     </div>
                 </div>

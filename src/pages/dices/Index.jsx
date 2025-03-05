@@ -16,7 +16,7 @@ export function Dices() {
 
     useEffect(() => {
         const savedDices = JSON.parse(localStorage.getItem('dices') || '[]');
-        setDices(savedDices);
+        setDices(savedDices.filter(dice => dice.isShown)); // Only show dices with isShown true
     }, []);
 
     const handleDiceClick = (diceId) => {
