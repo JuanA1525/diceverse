@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
-import { About } from './pages/About'
 import { NotFound } from './pages/NotFound'
-import { Dices } from './pages/dices/Dices'
-import { CreateDices} from './pages/dices/CreateDices'
-import { Games } from './pages/games/Games'
-import { CreateGames } from './pages/games/CreateGames'
+import { Dices } from './pages/dices/Index'
+import { CreateDices } from './pages/dices/Create'
+import { Games } from './pages/games/Index'
+import { CreateGames } from './pages/games/Create'
 import './App.css'
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
 
         {/* Dices */}
