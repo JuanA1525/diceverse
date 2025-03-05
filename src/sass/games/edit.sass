@@ -21,9 +21,11 @@ section.main-content
 .dice-selection
     width: 100%
     background: $secondary
-    padding: 1.5em
+    padding: 1em
     border-radius: 1em
     margin-top: 0
+    box-sizing: border-box
+    overflow: hidden
 
     h3
         font: bold 1.2em $font-poppins
@@ -32,20 +34,27 @@ section.main-content
         text-align: center
 
 .dice-grid
-    @include grid-container
-    grid-template-columns: repeat(4, 1fr)
-    max-height: 50vh
-    @include scrollable-container
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 0.8em
+    width: 100%
+    max-height: 40vh
+    overflow-y: auto
+    overflow-x: hidden
+    padding: 0.2em
+    justify-items: center
+    box-sizing: border-box
 
 .dice-option
-    background: $white
-    padding: 0.8em
-    border-radius: 0.8em
+    width: 100%
+    max-width: 90px
     aspect-ratio: 1/1
+    background: $white
+    padding: 0.5em
+    border-radius: 0.8em
     @include flex-center
     cursor: pointer
     transition: background-color 0.3s ease
-    width: 100%
 
     h4
         font: bold 0.8em $font-poppins
@@ -83,3 +92,36 @@ section.main-content
 .game-name-input
     @include input-base
     background: $secondary
+
+.button-group
+    display: flex
+    flex-direction: row
+    gap: 1em
+    width: 100%
+    margin-top: 1em
+
+.update-game-btn
+    @include flex-center
+    @include button-base
+    gap: 0.5em
+    padding: 1em
+    background: $black
+    color: $white
+    font: 1.2em $font-poppins
+    flex: 3
+
+    img
+        width: 2em
+        height: 2em
+
+.delete-game-btn
+    @include flex-center
+    @include button-base
+    padding: 1em
+    background: #ff4747
+    color: $white
+    font: 1.2em $font-poppins
+    flex: 1
+
+    &:hover
+        background: darken(#ff4747, 10%)

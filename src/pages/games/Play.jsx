@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Dice from "../../components/Dice";
 import "../../sass/games/play.css";
 import rollIcon from "../../assets/icons/roll-light.png";
@@ -6,88 +7,89 @@ import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 
 export function Play() {
-  const [dices, setDices] = useState([
-    {
-      id: 1,
-      options: [1, 2, 3, 4, 5, 6],
-      type: "number",
-      isSelected: false,
-      currentValue: 1,
-    },
-    {
-      id: 2,
-      options: [1, 2, 3, 4, 5, 6],
-      type: "number",
-      isSelected: false,
-      currentValue: 2,
-    },
-    {
-      id: 3,
-      options: [1, 2, 3, 4, 5, 6],
-      type: "number",
-      isSelected: false,
-      currentValue: 3,
-    },
-    {
-      id: 4,
-      options: ["Beso", "Abrazo", "Caricia"],
-      type: "text",
-      isSelected: false,
-      currentValue: "Beso",
-    },
-    {
-      id: 5,
-      options: ["Mejilla", "Labios", "Cuello"],
-      type: "text",
-      isSelected: false,
-      currentValue: "Labios",
-    },
-  ]);
+  const { name } = useParams();
+  const [game, setGame] = useState(null);
 
-  const [name, setName] = useState("La vaca lola");
+  useEffect(() => {
+    const games = JSON.parse(localStorage.getItem("games") || "[]");
+    const dices = JSON.parse(localStorage.getItem("dices") || "[]");
+    const currentGame = games.find((g) => g.name === name);
 
-  // Función para seleccionar/deseleccionar un dice
+    if (currentGame) {
+      const updatedDices = currentGame.dices.map(gameDice => {
+        const latestDice = dices.find(d => d.id === gameDice.id);
+        if (!latestDice) return gameDice; // If dice not found, use the one from game
+
+        return {
+          ...latestDice,
+          isSelected: false,
+          currentValue: latestDice.currentValue || latestDice.options[0] // Ensure there's a default value
+        };
+      });
+
+      setGame({
+        ...currentGame,
+        dices: updatedDices
+      });
+    }
+  }, [name]);
+
   function toggleSeleccion(id) {
-    setDices(
-      dices.map((dice) =>
+    if (!game) return;
+    setGame({
+      ...game,
+      dices: game.dices.map((dice) =>
         dice.id === id ? { ...dice, isSelected: !dice.isSelected } : dice
-      )
-    );
+      ),
+    });
   }
 
-  // Función para tirar los dices isSelecteds
   function rollDices() {
-    setDices(
-      dices.map((dice) =>
-        dice.isSelected
-          ? {
-              ...dice,
-              currentValue:
-                dice.options[Math.floor(Math.random() * dice.options.length)],
-            }
-          : dice
-      )
-    );
+    if (!game) return;
+
+    // Check if any dice is selected
+    const hasSelectedDices = game.dices.some(dice => dice.isSelected);
+
+    setGame({
+      ...game,
+      dices: game.dices.map((dice) => {
+        // If no dices are selected, roll all dices
+        // If some are selected, only roll selected ones
+        if (!hasSelectedDices || dice.isSelected) {
+          return {
+            ...dice,
+            currentValue: dice.options[Math.floor(Math.random() * dice.options.length)]
+          };
+        }
+        return dice;
+      }),
+    });
+  }
+
+  if (!game) {
+    return <div>Loading game {name}...</div>;
   }
 
   return (
     <div>
-      {/* APP TITLE */}
       <div className="app-title">
         <h1>Diceverse</h1>
         <img src={logo} alt="Diceverse Logo" />
       </div>
 
-      {/* MAIN CONTENT */}
       <section className="main-content">
         <div className="main-content__header">
           <img src={diceIcon} alt="Dice Icon" />
-          <h2>{name}</h2>
+          <h2>{game.name}</h2>
         </div>
 
         <div className="dices-container">
-          {dices.map((dice) => (
-            <Dice key={dice.id} {...dice} toggleSeleccion={toggleSeleccion} />
+          {game.dices.map((dice) => (
+            <Dice
+              key={dice.id}
+              {...dice}
+              toggleSeleccion={toggleSeleccion}
+            />
           ))}
         </div>
         <button onClick={rollDices} className="roll-button">

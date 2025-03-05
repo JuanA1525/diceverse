@@ -9,16 +9,15 @@ import createIcon from "../../assets/icons/create-light.png";
 import "../../sass/global.css";
 import "../../sass/games/index.css";
 import { Game } from "../../components/Game";
+import { useState, useEffect } from "react";
 
 export function Games() {
-    const games = [
-        "Custom Game 1",
-        "Custom Game 2",
-        "Custom Game 3",
-        "Custom Game 4",
-        "Custom Game 5",
-        "Custom Game 6",
-    ];
+    const [games, setGames] = useState([])
+
+    useEffect(() => {
+        const savedGames = JSON.parse(localStorage.getItem('games') || '[]')
+        setGames(savedGames.filter(game => game.isShown))
+    }, [])
 
     return (
         <div>
@@ -37,8 +36,14 @@ export function Games() {
                 </div>
 
                 <div className="main-content-games">
-                    {games.map((game, index) => (
-                        <Game key={index} page="/pages/games/edit" name={game} imgSrc={diceIcon} imgAlt="dice-icon" />
+                    {games.map((game) => (
+                        <Game
+                            key={game.name}
+                            name={game.name}
+                            dices={game.dices}
+                            imgSrc={diceIcon}
+                            imgAlt="dice-icon"
+                        />
                     ))}
                 </div>
 

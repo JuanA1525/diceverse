@@ -1,0 +1,29 @@
+@import '../variables'
+
+.selectable-dice
+    @include flex-center
+    background: $white
+    padding: 0.5em
+    border-radius: 0.8em
+    aspect-ratio: 1/1
+    cursor: pointer
+    transition: all 0.3s ease
+    border: 2px solid transparent
+    width: 100%
+    height: auto
+    max-width: 80px
+
+    h4
+        font: bold 0.8em $font-poppins
+        color: $black
+        text-align: center
+        word-break: break-word
+        margin: 0
+
+    &.selected
+        background: $dark
+        border-color: $white
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.5)
+
+        h4
+            color: $white

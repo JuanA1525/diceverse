@@ -32,7 +32,8 @@ function App() {
           {/* Games */}
           <Route path="/pages/games/index" element={<Games />} />
           <Route path="/pages/games/create" element={<CreateGames />} />
-          <Route path="/pages/games/edit" element={<EditGames />} />
+          <Route path="/pages/games/edit/:name" element={<EditGames />} /> {/* Updated */}
+          <Route path="/pages/games/play/:name" element={<Play />} /> {/* Updated */}
 
           {/* Quick Game */}
           <Route path="/quick_game/create" element={<QuickGameCreate />} />

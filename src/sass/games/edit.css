@@ -27,9 +27,11 @@ section.main-content {
 .dice-selection {
   width: 100%;
   background: #ccc;
-  padding: 1.5em;
+  padding: 1em;
   border-radius: 1em;
   margin-top: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .dice-selection h3 {
   font: bold 1.2em "Poppins", sans-serif;
@@ -40,26 +42,29 @@ section.main-content {
 
 .dice-grid {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.8em;
   width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  max-height: 50vh;
-  overflow-y: scroll;
+  max-height: 40vh;
+  overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 0.5em;
+  padding: 0.2em;
+  justify-items: center;
+  box-sizing: border-box;
 }
 
 .dice-option {
-  background: #ffffff;
-  padding: 0.8em;
-  border-radius: 0.8em;
+  width: 100%;
+  max-width: 90px;
   aspect-ratio: 1/1;
+  background: #ffffff;
+  padding: 0.5em;
+  border-radius: 0.8em;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%;
 }
 .dice-option h4 {
   font: bold 0.8em "Poppins", sans-serif;
@@ -113,4 +118,56 @@ section.main-content {
   font: 1.2em "Poppins", sans-serif;
   width: 100%;
   background: #ccc;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.update-game-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  gap: 0.5em;
+  padding: 1em;
+  background: #000000;
+  color: #ffffff;
+  font: 1.2em "Poppins", sans-serif;
+  flex: 3;
+}
+.update-game-btn:hover {
+  transform: scale(1.02);
+}
+.update-game-btn img {
+  width: 2em;
+  height: 2em;
+}
+
+.delete-game-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 1em;
+  background: #ff4747;
+  color: #ffffff;
+  font: 1.2em "Poppins", sans-serif;
+  flex: 1;
+}
+.delete-game-btn:hover {
+  transform: scale(1.02);
+}
+.delete-game-btn:hover {
+  background: #ff1414;
 }/*# sourceMappingURL=edit.css.map */

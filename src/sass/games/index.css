@@ -39,6 +39,14 @@ section.main-content .main-content-games {
   padding-right: 0.5em;
 }
 
+.game-card-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.8em;
+  touch-action: pan-y pinch-zoom;
+  width: 100%;
+}
+
 .game-card {
   display: flex;
   justify-content: center;
@@ -50,6 +58,15 @@ section.main-content .main-content-games {
   padding: 1em;
   border-radius: 1em;
   box-shadow: 0 1em 1em rgba(0, 0, 0, 0.2);
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+.game-card.swiping {
+  transform: translateX(-100px);
 }
 .game-card h3 {
   font: bold 1.1em "Poppins", sans-serif;
@@ -58,6 +75,22 @@ section.main-content .main-content-games {
 .game-card > img {
   width: 30%;
   height: auto;
+}
+
+.edit-indicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  background: #00b4d8;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  font: 1em "Poppins", sans-serif;
+  border-radius: 0 0.8em 0.8em 0;
 }
 
 .create-button {

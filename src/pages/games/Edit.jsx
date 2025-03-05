@@ -1,19 +1,74 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import gamesIcon from "../../assets/icons/games.png";
 import logo from "../../assets/logo.png";
 import createIcon from "../../assets/icons/create-light.png";
 import "../../sass/global.css";
 import "../../sass/games/edit.css";
+import { SelectableDice } from '../../components/SelectableDice'
 
 export function EditGames() {
+    const { name } = useParams();
     const navigate = useNavigate();
+    const [gameName, setGameName] = useState("");
     const [selectedDices, setSelectedDices] = useState([]);
+    const [availableDices, setAvailableDices] = useState([]);
+
+    useEffect(() => {
+        const games = JSON.parse(localStorage.getItem('games') || '[]');
+        const dices = JSON.parse(localStorage.getItem('dices') || '[]');
+        const currentGame = games.find(g => g.name === name);
+
+        if (currentGame) {
+            setGameName(currentGame.name);
+            setSelectedDices(currentGame.dices);
+        }
+
+        // Filter only visible dices
+        setAvailableDices(dices.filter(dice => dice.isShown));
+    }, [name]);
 
     const toggleDiceSelection = (dice) => {
         setSelectedDices((prev) =>
-            prev.includes(dice) ? prev.filter((d) => d !== dice) : [...prev, dice]
+            prev.some(d => d.id === dice.id)
+                ? prev.filter((d) => d.id !== dice.id)
+                : [...prev, dice]
         );
+    };
+
+    const deleteGame = () => {
+        if (window.confirm('Are you sure you want to delete this game?')) {
+            const games = JSON.parse(localStorage.getItem('games') || '[]');
+            const updatedGames = games.filter(game => game.name !== name);
+            localStorage.setItem('games', JSON.stringify(updatedGames));
+            navigate("/pages/games/index");
+        }
+    };
+
+    const updateGame = () => {
+        if (selectedDices.length === 0) {
+            alert('Please select at least one dice');
+            return;
+        }
+
+        const games = JSON.parse(localStorage.getItem('games') || '[]');
+
+        if (games.some(game => game.name === gameName && game.name !== name)) {
+            alert('A game with this name already exists!');
+            return;
+        }
+
+        const updatedGames = games.map(game =>
+            game.name === name ? {
+                ...game,
+                name: gameName,
+                dices: selectedDices,
+                isShown: true
+            } : game
+        );
+
+        localStorage.setItem('games', JSON.stringify(updatedGames));
+        navigate("/pages/games/index");
     };
 
     return (
@@ -32,30 +87,37 @@ export function EditGames() {
                 </div>
 
                 <div className="game-form">
-                    <input type="text" placeholder="Name" className="game-name-input" />
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        className="game-name-input"
+                        value={gameName}
+                        onChange={(e) => setGameName(e.target.value)}
+                    />
 
                     <div className="dice-selection">
                         <h3>Dices for this game</h3>
                         <div className="dice-grid">
-                            {[...Array(12)].map((_, index) => {
-                                const diceNumber = `Dice N${index + 1}`;
-                                return (
-                                    <div
-                                        key={diceNumber}
-                                        className={`dice-option ${selectedDices.includes(diceNumber) ? 'selected' : ''}`}
-                                        onClick={() => toggleDiceSelection(diceNumber)}
-                                    >
-                                        <h4>{diceNumber}</h4>
-                                    </div>
-                                );
-                            })}
+                            {availableDices.map((dice) => (
+                                <SelectableDice
+                                    key={dice.id}
+                                    id={dice.id}
+                                    isSelected={selectedDices.some(d => d.id === dice.id)}
+                                    onClick={() => toggleDiceSelection(dice)}
+                                />
+                            ))}
                         </div>
                     </div>
 
-                    <button className="confirm-game-btn" onClick={() => navigate("/pages/games/index")}>
-                        <img src={createIcon} alt="Edit Game" />
-                        Confirm
-                    </button>
+                    <div className="button-group">
+                        <button className="update-game-btn" onClick={updateGame}>
+                            <img src={createIcon} alt="Update Game" />
+                            Update Game
+                        </button>
+                        <button className="delete-game-btn" onClick={deleteGame}>
+                            Delete Game
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>
