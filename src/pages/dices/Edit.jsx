@@ -39,23 +39,29 @@ export function EditDice() {
         }
     };
 
+    const determineType = (options) => {
+        return options.every(opt => !isNaN(opt)) ? "number" : "text";
+    };
+
     const updateDice = () => {
         const dices = JSON.parse(localStorage.getItem('dices') || '[]');
-        // Check if another dice already has this name (except current dice)
-        const isDuplicateName = dices.some(dice =>
-            dice.id === diceName && dice.id !== id
-        );
 
-        if (isDuplicateName) {
+        if (dices.some(dice => dice.id === diceName && dice.id !== id)) {
             alert('A dice with this name already exists!');
             return;
         }
+
+        const processedOptions = determineType(options) === "number"
+            ? options.map(opt => Number(opt))
+            : options;
 
         const updatedDices = dices.map(dice =>
             dice.id === id ? {
                 ...dice,
                 id: diceName,
-                options
+                options: processedOptions,
+                type: determineType(options),
+                currentValue: processedOptions[0]
             } : dice
         );
         localStorage.setItem('dices', JSON.stringify(updatedDices));

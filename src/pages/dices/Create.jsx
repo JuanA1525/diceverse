@@ -9,6 +9,7 @@ import homeIcon from "../../assets/icons/home.png";
 import flashIcon from "../../assets/icons/flash.png";
 import helpIcon from "../../assets/icons/help.png";
 import createIcon from "../../assets/icons/create-light.png";
+import { SwipeableOption } from '../../components/SwipeableOption'
 
 export function CreateDices() {
     const [diceName, setDiceName] = useState("");
@@ -23,6 +24,14 @@ export function CreateDices() {
         }
     };
 
+    const deleteOption = (index) => {
+        setOptions(options.filter((_, i) => i !== index));
+    };
+
+    const determineType = (options) => {
+        return options.every(opt => !isNaN(opt)) ? "number" : "text";
+    };
+
     const createDice = () => {
         const dices = JSON.parse(localStorage.getItem('dices') || '[]');
 
@@ -32,11 +41,17 @@ export function CreateDices() {
             return;
         }
 
+        const processedOptions = determineType(options) === "number"
+            ? options.map(opt => Number(opt))
+            : options;
+
         const newDice = {
             id: diceName,
-            options,
+            options: processedOptions,
             isSelected: false,
-            currentValue: options[0]
+            type: determineType(options),
+            isShown: true,
+            currentValue: processedOptions[0]
         };
 
         localStorage.setItem('dices', JSON.stringify([...dices, newDice]));
@@ -84,7 +99,11 @@ export function CreateDices() {
                         </div>
                         <div className="options-list">
                             {options.map((option, index) => (
-                                <div key={index} className="option-card">{option}</div>
+                                <SwipeableOption
+                                    key={index}
+                                    option={option}
+                                    onDelete={() => deleteOption(index)}
+                                />
                             ))}
                         </div>
                     </div>
