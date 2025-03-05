@@ -19,7 +19,7 @@ export function QuickGamePlay() {
             <section className="main-content">
                 <div className="main-content__header">
                     <img src={gameIcon} alt="games-icon" />
-                    <h2>Quick Name</h2>
+                    <h2>Quick Game</h2>
                 </div>
                 <div className="quick-game-content">
                     <div className="quick-game-dice">
