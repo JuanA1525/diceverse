@@ -23,7 +23,7 @@ function App() {
           <Route path="/pages/dices/create" element={<CreateDices />} />
 
           {/* Games */}
-          <Route path="/pages/games/mygames" element={<Games />} />
+          <Route path="/pages/games/index" element={<Games />} />
           <Route path="/pages/games/create" element={<CreateGames />} />
         </Routes>
       </div>
