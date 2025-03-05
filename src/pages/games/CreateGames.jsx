@@ -7,8 +7,8 @@ import flashIcon from "../../assets/icons/flash.png";
 import helpIcon from "../../assets/icons/help.png";
 import logo from "../../assets/logo.png";
 import createIcon from "../../assets/icons/create-light.png";
-import "../../css/global.css";
-import "../../css/games/create.css";
+import "../../sass/global.css";
+import "../../sass/games/create.css";
 
 export function CreateGames() {
     const navigate = useNavigate();
@@ -53,10 +53,10 @@ export function CreateGames() {
                     <img src={gamesIcon} alt="Games Icon" />
                     <h2>Create Game</h2>
                 </div>
-                
+
                 <div className="game-form">
                     <input type="text" placeholder="Name" className="game-name-input" />
-                    
+
                     <div className="dice-selection">
                         <h3>Select dices for this game</h3>
                         <div className="dice-grid">
@@ -74,8 +74,8 @@ export function CreateGames() {
                             })}
                         </div>
                     </div>
-                    
-                    <button className="create-game-btn" onClick={() => navigate("/pages/games/mygames")}> 
+
+                    <button className="create-game-btn" onClick={() => navigate("/pages/games/mygames")}>
                         <img src={createIcon} alt="Create Game" />
                         Create Game
                     </button>

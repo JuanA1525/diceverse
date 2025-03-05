@@ -1,0 +1,52 @@
+@import 'variables'
+
+section.main-content
+    @include section-base
+    justify-content: center
+    height: 60vh
+
+    .main-content__header
+        @include flex-center
+        margin-top: 1em
+        width: 100%
+
+        > img
+            width: 20%
+            @include image-aspect
+
+        h2
+            @include header-title
+
+    .main-content__games
+        @include flex-column
+        align-items: center
+        margin: 2em 0
+        border-radius: 2em
+        padding: 1em
+        gap: 0.8em
+        background: $secondary
+
+        h2
+            margin: 1em 0
+            font: bold 1.2em $font-poppins
+            color: rgba(0, 0, 0, 0.3)
+
+        .game-card
+            @include flex-center
+            justify-content: space-between
+            text-decoration: none
+            width: 100%
+            @include card-base
+
+            h3
+                font: bold 1.5em $font-poppins
+                color: $black
+
+            > img
+                width: 20%
+
+.copyright
+    @include flex-center
+    width: 100%
+    font: 1em $font-poppins
+    color: rgba(0, 0, 0, 0.5)

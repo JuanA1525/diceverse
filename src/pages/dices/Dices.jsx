@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../css/global.css";
-import "../../css/dices/index.css";
+import "../../sass/global.css";
+import "../../sass/dices/index.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import gamesIcon from "../../assets/icons/games.png";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../../css/global.css";
-import "../../css/dices/create.css";
+import "../../sass/global.css";
+import "../../sass/dices/create.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import gamesIcon from "../../assets/icons/games.png";

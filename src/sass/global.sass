@@ -1,0 +1,46 @@
+@import 'variables'
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    font-family: $font-poppins
+    font-size: 1rem
+    line-height: 1.6
+    color: $dark
+    background-color: $light
+
+.navbar
+    position: fixed
+    bottom: 0
+    @include flex-center
+    z-index: 1000
+    width: 100%
+    background-color: $gray
+    box-shadow: $shadow
+
+    a
+        @include flex-center
+        width: 20%
+        text-decoration: none
+        background: $gray
+
+        > img
+            width: 80%
+            @include image-aspect
+            padding: 0.5em
+
+.app-title
+    @include flex-center
+    padding: 2em 0
+    width: 100%
+
+    h1
+        font: bold 3em $font-pixelify
+        text-transform: uppercase
+
+    > img
+        width: 20%
+        padding: 0.5em

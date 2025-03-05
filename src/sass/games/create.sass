@@ -1,0 +1,85 @@
+@import '../variables'
+
+section.main-content
+    @include flex-column
+    align-items: center
+    justify-content: flex-start
+    min-height: 60vh
+    padding: 0 2em
+
+.main-content-header
+    @include flex-center
+    width: 100%
+
+    > img
+        width: 20%
+        @include image-aspect
+
+    h2
+        @include header-title
+
+.dice-selection
+    width: 100%
+    background: $secondary
+    padding: 1.5em
+    border-radius: 1em
+    margin-top: 0
+
+    h3
+        font: bold 1.2em $font-poppins
+        color: rgba(0, 0, 0, 0.7)
+        margin-bottom: 1em
+        text-align: center
+
+.dice-grid
+    @include grid-container
+    grid-template-columns: repeat(4, 1fr)
+    max-height: 50vh
+    @include scrollable-container
+
+.dice-option
+    background: $white
+    padding: 0.8em
+    border-radius: 0.8em
+    aspect-ratio: 1/1
+    @include flex-center
+    cursor: pointer
+    transition: background-color 0.3s ease
+    width: 100%
+
+    h4
+        font: bold 0.8em $font-poppins
+        color: $black
+        text-align: center
+
+    &.selected
+        background: $dark
+
+        h4
+            color: $white
+
+.create-game-btn
+    @include flex-center
+    @include button-base
+    gap: 0.5em
+    width: 100%
+    margin: 2em auto 0
+    padding: 0.8em
+    background: $black
+    border-radius: 0.5em
+    color: $light
+    font: 1.2em $font-poppins
+
+    img
+        width: 1.5em
+        height: 1.5em
+
+.game-form
+    @include flex-column
+    gap: 1.5em
+    width: 100%
+    margin-top: 2em
+
+.game-name-input
+    @include input-base
+    background: $secondary

@@ -1,15 +1,14 @@
-@import url("../global.css");
-
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap");
 section.main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 2em;
+  margin-bottom: 2em;
   justify-content: center;
   height: 70vh;
   padding: 0 2em 2em 2em;
-  margin-bottom: 2em;
 }
-
 section.main-content .main-content__header {
   display: flex;
   justify-content: center;
@@ -17,18 +16,15 @@ section.main-content .main-content__header {
   margin-top: 1em;
   width: 100%;
 }
-
-section.main-content .main-content__header>img {
+section.main-content .main-content__header > img {
   width: 20%;
   height: auto;
   aspect-ratio: 1/1;
 }
-
 section.main-content .main-content__header h2 {
-  font: bold 2.2em var(--pixelify);
+  font: bold 2.2em "Pixelify Sans", sans-serif;
   padding-left: 0.3em;
 }
-
 section.main-content .main-content__dices {
   display: flex;
   flex-wrap: wrap;
@@ -38,31 +34,31 @@ section.main-content .main-content__dices {
   padding: 1em 0;
   margin: 2em 0;
   gap: 1em;
-  box-shadow: var(--shadow);
-  background: var(--secondary);
+  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.2);
+  background: #ccc;
   overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 0.5em;
 }
-
 section.main-content .main-content__dices .dice-card {
   display: flex;
+  justify-content: center;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
   width: calc(50% - 2em);
   height: auto;
   aspect-ratio: 1/1;
+  background: #ffffff;
   padding: 1em;
   border-radius: 1em;
-  background-color: var(--white);
-  box-shadow: var(--shadow);
+  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.2);
 }
-
-.dice-card h3 {
-  font: bold 1.1em var(--poppins);
-  color: var(--black);
+section.main-content .main-content__dices .dice-card h3 {
+  font: bold 1.1em "Poppins", sans-serif;
+  color: #000000;
 }
-
-.dice-card>img {
+section.main-content .main-content__dices .dice-card > img {
   width: 40%;
 }
 
@@ -71,7 +67,7 @@ section.main-content .main-content__dices .dice-card {
   justify-content: center;
   align-items: center;
   width: 100%;
-  font: 1em var(--poppins);
+  font: 1em "Poppins", sans-serif;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -82,15 +78,14 @@ section.main-content .main-content__dices .dice-card {
   border-radius: 0.5em;
   width: 55%;
   margin: 0 auto;
-  font: 1.2em var(--poppins);
-  color: var(--light);
+  font: 1.2em "Poppins", sans-serif;
+  color: #f8f8f8;
   text-decoration: none;
-  background: var(--black);
+  background: #000000;
 }
-
-.create-button>img {
+.create-button > img {
   width: 25%;
   height: auto;
   aspect-ratio: 1/1;
   padding: 0.5em;
-}
+}/*# sourceMappingURL=index.css.map */

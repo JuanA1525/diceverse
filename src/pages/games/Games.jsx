@@ -6,8 +6,8 @@ import homeIcon from "../../assets/icons/home.png";
 import quickGameIcon from "../../assets/icons/flash.png";
 import helpIcon from "../../assets/icons/help.png";
 import createIcon from "../../assets/icons/create-light.png";
-import "../../css/global.css";
-import "../../css/games/my_games.css";
+import "../../sass/global.css";
+import "../../sass/games/my_games.css";
 
 export function Games() {
     const games = [

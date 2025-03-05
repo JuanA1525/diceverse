@@ -1,0 +1,61 @@
+@import '../variables'
+
+section.main-content
+    @include section-base
+    justify-content: center
+    height: 70vh
+    padding: 0 2em 2em 2em
+
+    .main-content-header
+        @include flex-center
+        margin-top: 1em
+        width: 100%
+
+        > img
+            width: 20%
+
+        h2
+            @include header-title
+
+    .main-content-games
+        @include flex-column
+        align-items: stretch
+        height: 50vh
+        padding: 1em
+        margin: 2em 0
+        gap: 1em
+        background: $secondary
+        border-radius: 1em
+        width: 100%
+        @include scrollable-container
+
+.game-card
+    @include flex-center
+    justify-content: space-between
+    text-decoration: none
+    width: 100%
+    @include card-base
+
+    h3
+        font: bold 1.1em $font-poppins
+        color: $black
+
+    > img
+        width: 30%
+        height: auto
+
+.create-button
+    @include flex-center
+    border-radius: 0.5em
+    width: 55%
+    margin: 0 auto
+    padding: 0.5em
+    font: 1.2em $font-poppins
+    color: $light
+    text-decoration: none
+    background: $black
+
+    > img
+        width: 2em
+        height: 2em
+        padding: 0.5em

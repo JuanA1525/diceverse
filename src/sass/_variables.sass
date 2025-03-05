@@ -1,0 +1,77 @@
+// Font imports
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap')
+
+// Fonts
+$font-poppins: 'Poppins', sans-serif
+$font-pixelify: 'Pixelify Sans', sans-serif
+$font-rowdies: 'Rowdies', sans-serif
+
+// Colors
+$primary: #ff6b6b
+$secondary: #ccc
+$tertiary: #06d6a0
+$black: #000000
+$white: #ffffff
+$gray: #c2c2c2
+$dark: #454545
+$light: #f8f8f8
+
+// Shadows and Effects
+$shadow: 0 1em 1em rgba(0, 0, 0, 0.2)
+$transition-default: transform 0.2s ease
+
+// Common mixins
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin flex-column
+    display: flex
+    flex-direction: column
+
+@mixin section-base
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 0 2em
+    margin-bottom: 2em
+
+@mixin card-base
+    background: $white
+    padding: 1em
+    border-radius: 1em
+    box-shadow: $shadow
+
+@mixin button-base
+    border: none
+    border-radius: 1em
+    cursor: pointer
+    transition: $transition-default
+    &:hover
+        transform: scale(1.02)
+
+@mixin input-base
+    padding: 1em
+    border: none
+    border-radius: 1em
+    font: 1.2em $font-poppins
+    width: 100%
+
+@mixin grid-container
+    display: grid
+    gap: 0.8em
+    width: 100%
+
+@mixin scrollable-container
+    overflow-y: scroll
+    overflow-x: hidden
+    padding-right: 0.5em
+
+@mixin header-title
+    font: bold 2.2em $font-pixelify
+    padding-left: 0.3em
+
+@mixin image-aspect
+    height: auto
+    aspect-ratio: 1/1

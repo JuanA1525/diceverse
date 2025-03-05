@@ -1,0 +1,69 @@
+@import '../variables'
+
+section.main-content
+    @include section-base
+    justify-content: center
+    height: 70vh
+    padding: 0 2em 2em 2em
+
+    .main-content__header
+        @include flex-center
+        margin-top: 1em
+        width: 100%
+
+        > img
+            width: 20%
+            @include image-aspect
+
+        h2
+            @include header-title
+
+    .main-content__dices
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+        align-items: center
+        height: 50vh
+        padding: 1em 0
+        margin: 2em 0
+        gap: 1em
+        box-shadow: $shadow
+        background: $secondary
+        @include scrollable-container
+
+        .dice-card
+            @include flex-center
+            justify-content: space-between
+            text-decoration: none
+            width: calc(50% - 2em)
+            height: auto
+            aspect-ratio: 1/1
+            @include card-base
+
+            h3
+                font: bold 1.1em $font-poppins
+                color: $black
+
+            > img
+                width: 40%
+
+.copyright
+    @include flex-center
+    width: 100%
+    font: 1em $font-poppins
+    color: rgba(0, 0, 0, 0.5)
+
+.create-button
+    @include flex-center
+    border-radius: 0.5em
+    width: 55%
+    margin: 0 auto
+    font: 1.2em $font-poppins
+    color: $light
+    text-decoration: none
+    background: $black
+
+    > img
+        width: 25%
+        @include image-aspect
+        padding: 0.5em
