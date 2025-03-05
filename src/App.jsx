@@ -6,11 +6,10 @@ import { Dices } from "./pages/dices/Index";
 import { CreateDices } from "./pages/dices/Create";
 import { Games } from "./pages/games/Index";
 import { CreateGames } from "./pages/games/Create";
-import { Help } from "./pages/help/Index";
 import { QuickGameCreate } from "./pages/quick_game/Create";
+import { Help } from "./pages/help/Index";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-
 
 function App() {
   return (
@@ -28,6 +27,12 @@ function App() {
           {/* Games */}
           <Route path="/pages/games/index" element={<Games />} />
           <Route path="/pages/games/create" element={<CreateGames />} />
+
+          {/* Quick Game */}
+          <Route path="/quick_game/create" element={<QuickGameCreate />} />
+
+          {/* Help */}
+          <Route path="/pages/help/index" element={<Help />} />
         </Routes>
       </div>
     </>
