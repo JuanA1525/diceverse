@@ -10,6 +10,7 @@ import homeIcon from "../assets/icons/home.png";
 import flashIcon from "../assets/icons/flash.png";
 import helpIcon from "../assets/icons/help.png";
 import kissIcon from "../assets/icons/kiss.png";
+import { Game } from "../components/Game";
 
 export function Home() {
     return (
@@ -28,18 +29,9 @@ export function Home() {
                     <h2>Main Games</h2>
                 </div>
                 <div className="main-content__games">
-                    <Link to="/games/classic" className="game-card">
-                        <h3>Classic Game</h3>
-                        <img src={diceIcon} alt="Classic Game" />
-                    </Link>
-                    <Link to="/games/cacho" className="game-card">
-                        <h3>Cacho Game</h3>
-                        <img src={diceIcon} alt="Cacho Game" />
-                    </Link>
-                    <Link to="/games/adult" className="game-card">
-                        <h3>Adult Game</h3>
-                        <img src={kissIcon} alt="Adult Game" />
-                    </Link>
+                    <Game page="/games/classic" name="Classic Game" imgSrc={diceIcon} imgAlt="Classic Game" />
+                    <Game page="/games/cacho" name="Cacho Game" imgSrc={diceIcon} imgAlt="Cacho Game" />
+                    <Game page="/games/adult" name="Adult Game" imgSrc={kissIcon} imgAlt="Adult Game" />
                     <h2>And more coming...</h2>
                 </div>
             </section>

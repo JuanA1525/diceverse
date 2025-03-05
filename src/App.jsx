@@ -7,6 +7,7 @@ import { CreateDices } from "./pages/dices/Create";
 import { EditDice } from "./pages/dices/Edit";
 import { Games } from "./pages/games/Index";
 import { CreateGames } from "./pages/games/Create";
+import { EditGames } from "./pages/games/Edit";
 import { QuickGameCreate } from "./pages/quick_game/Create";
 import { QuickGamePlay } from "./pages/quick_game/Play";
 import { Help } from "./pages/help/Index";
@@ -30,6 +31,7 @@ function App() {
           {/* Games */}
           <Route path="/pages/games/index" element={<Games />} />
           <Route path="/pages/games/create" element={<CreateGames />} />
+          <Route path="/pages/games/edit" element={<EditGames />} />
 
           {/* Quick Game */}
           <Route path="/quick_game/create" element={<QuickGameCreate />} />
