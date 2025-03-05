@@ -85,7 +85,7 @@ section.main-content {
   min-width: 4em;
   border: none;
   border-radius: 50%;
-  background: #454545;
+  background: #000000;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -180,9 +180,9 @@ section.main-content {
   padding: 1em;
   background: #000000;
   color: #ffffff;
-  font: 1.2em "Poppins", sans-serif;
+  font: 1em "Poppins", sans-serif;
   text-decoration: none;
-  flex: 3;
+  flex: 2;
 }
 .update-dice-btn:hover {
   transform: scale(1.02);
@@ -203,9 +203,9 @@ section.main-content {
   padding: 1em;
   background: #ff4747;
   color: #ffffff;
-  font: 1.2em "Poppins", sans-serif;
+  font: 1em "Poppins", sans-serif;
   text-decoration: none;
-  flex: 1;
+  flex: 2;
 }
 .delete-dice-btn:hover {
   transform: scale(1.02);
