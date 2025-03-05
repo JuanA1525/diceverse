@@ -11,7 +11,7 @@ import flashIcon from "../assets/icons/flash.png";
 import helpIcon from "../assets/icons/help.png";
 import kissIcon from "../assets/icons/kiss.png";
 
-export function Home() {
+export function Index() {
     return (
         <div>
 
