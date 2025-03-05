@@ -24,7 +24,7 @@ export function Navbar() {
       <Link to="/quick_game/create">
         <img src={flashIcon} alt="quickgame-icon" />
       </Link>
-      <Link to="/help">
+      <Link to="/pages/help/index">
         <img src={helpIcon} alt="help-icon" />
       </Link>
     </nav>
