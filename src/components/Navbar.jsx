@@ -21,7 +21,7 @@ export function Navbar() {
       <Link to="/">
         <img src={homeIcon} alt="home-icon" />
       </Link>
-      <Link to="/quickgame">
+      <Link to="/quick_game/create">
         <img src={flashIcon} alt="quickgame-icon" />
       </Link>
       <Link to="/help">
