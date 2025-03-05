@@ -38,7 +38,7 @@ export function Games() {
 
                 <div className="main-content-games">
                     {games.map((game, index) => (
-                        <Game key={index} page="" name={game} imgSrc={diceIcon} imgAlt="dice-icon" />
+                        <Game key={index} page="/pages/games/edit" name={game} imgSrc={diceIcon} imgAlt="dice-icon" />
                     ))}
                 </div>
 
