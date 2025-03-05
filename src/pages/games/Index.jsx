@@ -7,7 +7,7 @@ import quickGameIcon from "../../assets/icons/flash.png";
 import helpIcon from "../../assets/icons/help.png";
 import createIcon from "../../assets/icons/create-light.png";
 import "../../sass/global.css";
-import "../../sass/games/my_games.css";
+import "../../sass/games/index.css";
 
 export function Games() {
     const games = [
