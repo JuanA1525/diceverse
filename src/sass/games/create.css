@@ -87,7 +87,7 @@ section.main-content {
   cursor: pointer;
   transition: transform 0.2s ease;
   gap: 0.5em;
-  width: 100%;
+  width: 70%;
   margin: 2em auto 0;
   padding: 0.8em;
   background: #000000;

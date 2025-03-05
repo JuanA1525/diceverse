@@ -140,8 +140,8 @@ section.main-content {
   padding: 1em;
   background: #000000;
   color: #ffffff;
-  font: 1.2em "Poppins", sans-serif;
-  flex: 3;
+  font: 1em "Poppins", sans-serif;
+  flex: 2;
 }
 .update-game-btn:hover {
   transform: scale(1.02);
@@ -162,8 +162,8 @@ section.main-content {
   padding: 1em;
   background: #ff4747;
   color: #ffffff;
-  font: 1.2em "Poppins", sans-serif;
-  flex: 1;
+  font: 1em "Poppins", sans-serif;
+  flex: 2;
 }
 .delete-game-btn:hover {
   transform: scale(1.02);

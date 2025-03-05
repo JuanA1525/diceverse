@@ -58,7 +58,7 @@ section.main-content
     min-width: 4em
     border: none
     border-radius: 50%
-    background: $dark
+    background: $black
     cursor: pointer
     @include flex-center
     padding: 0.6em
@@ -112,9 +112,8 @@ section.main-content
 
 .create-dice-btn
     @include flex-center
-    @include button-base
     gap: 0.5em
-    padding: 0.8em 1em // Standardized padding
+    padding: 0.5em 1em
     background: $black
     color: $white
     font: 1.2em $font-poppins
@@ -124,7 +123,7 @@ section.main-content
 
 .create-group
     display: flex
-    align-items: stretch // Changed from center to stretch
+    align-items: center
     justify-content: space-between
     gap: 1em
     width: 100%
@@ -138,11 +137,12 @@ section.main-content
     display: flex
     align-items: center
     gap: 1em
-    padding: 0.8em 1em // Adjusted padding to match button
-    background: $secondary
+    height: 4em
+    padding: 0 0.5em
+    background: $dark
     border-radius: 0.8em
     flex: 1
-    height: auto // Allow height to match button
+    accent-color: $black
 
     input[type="checkbox"]
         width: 1.5em
@@ -150,6 +150,6 @@ section.main-content
         cursor: pointer
 
     label
-        font: 1.2em $font-poppins
-        color: rgba(0, 0, 0, 0.7)
+        font: 1em $font-poppins
+        color: #fff
         cursor: pointer

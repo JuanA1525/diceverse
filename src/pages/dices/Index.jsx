@@ -15,20 +15,21 @@ export function Dices() {
     const [dices, setDices] = useState([]);
 
     useEffect(() => {
-        const savedDices = JSON.parse(localStorage.getItem('dices') || '[]');
-        setDices(savedDices.filter(dice => dice.isShown)); // Only show dices with isShown true
+        const savedDices = JSON.parse(localStorage.getItem("dices") || "[]");
+        setDices(savedDices);
     }, []);
 
     const handleDiceClick = (diceId) => {
-        setDices(dices.map(dice => ({
-            ...dice,
-            isSelected: dice.id === diceId ? !dice.isSelected : dice.isSelected
-        })));
+        setDices(
+            dices.map((dice) => ({
+                ...dice,
+                isSelected: dice.id === diceId ? !dice.isSelected : dice.isSelected,
+            }))
+        );
     };
 
     return (
         <div>
-
             {/* APP TITLE */}
             <div className="app-title">
                 <h1>Diceverse</h1>
@@ -42,13 +43,29 @@ export function Dices() {
                     <h2>My Dices</h2>
                 </div>
                 <div className="main-content__dices">
-                    {dices.map((dice) => (
-                        <DiceCard
-                            key={dice.id}
-                            id={dice.id}
-                            onDiceClick={handleDiceClick}
-                        />
-                    ))}
+                    {dices.length > 0 ? (
+                        dices.map((dice) => (
+                            <DiceCard
+                                key={dice.id}
+                                id={dice.id}
+                                onDiceClick={handleDiceClick}
+                            />
+                        ))
+                    ) : (
+                        <h2
+                            style={{
+                                textAlign: "center",
+                                width: "100%",
+                                padding: "1em",
+                                borderRadius: "0.5em",
+                                backgroundColor: "#aaa",
+                                color: "#fff",
+                                margin: "1em 0",
+                            }}
+                        >
+                            No dices found
+                        </h2>
+                    )}
                 </div>
                 <Link to="/pages/dices/create" className="create-button">
                     Create dice <img src={createIcon} alt="Create Icon" />

@@ -5,7 +5,7 @@ import "../../sass/quick_game/create.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import createIcon from "../../assets/icons/create-light.png";
-import { SwipeableOption } from '../../components/SwipeableOption';
+import { SwipeableOption } from "../../components/SwipeableOption";
 
 export function QuickGameCreate() {
     const navigate = useNavigate();
@@ -16,8 +16,8 @@ export function QuickGameCreate() {
 
     useEffect(() => {
         // Check if there's already a quick game
-        const games = JSON.parse(localStorage.getItem('games') || '[]');
-        const quickGame = games.find(game => game.isQuick);
+        const games = JSON.parse(localStorage.getItem("games") || "[]");
+        const quickGame = games.find((game) => !game.isShown);
 
         if (quickGame) {
             navigate("/quick_game/play");
@@ -25,7 +25,7 @@ export function QuickGameCreate() {
     }, [navigate]);
 
     const determineType = (options) => {
-        return options.every(opt => !isNaN(opt)) ? "number" : "text";
+        return options.every((opt) => !isNaN(opt)) ? "number" : "text";
     };
 
     const addOption = () => {
@@ -41,18 +41,19 @@ export function QuickGameCreate() {
 
     const createDice = () => {
         if (!diceName.trim()) {
-            alert('Please enter a name for the dice');
+            alert("Please enter a name for the dice");
             return;
         }
 
         if (options.length < 2) {
-            alert('Please add at least 2 options');
+            alert("Please add at least 2 options");
             return;
         }
 
-        const processedOptions = determineType(options) === "number"
-            ? options.map(opt => Number(opt))
-            : options;
+        const processedOptions =
+            determineType(options) === "number"
+                ? options.map((opt) => Number(opt))
+                : options;
 
         const newDice = {
             id: diceName,
@@ -61,28 +62,26 @@ export function QuickGameCreate() {
             type: determineType(options),
             isShown: false,
             currentValue: processedOptions[0],
-            isRoulette
+            isRoulette,
         };
 
-        const dices = JSON.parse(localStorage.getItem('dices') || '[]');
-        localStorage.setItem('dices', JSON.stringify([...dices, newDice]));
+        const dices = JSON.parse(localStorage.getItem("dices") || "[]");
+        localStorage.setItem("dices", JSON.stringify([...dices, newDice]));
 
         const quickGame = {
-            name: 'quick_game',
+            name: "quick_game",
             dices: [newDice],
             isShown: false,
-            isQuick: true  // Add this field
         };
 
-        const games = JSON.parse(localStorage.getItem('games') || '[]');
-        localStorage.setItem('games', JSON.stringify([...games, quickGame]));
+        const games = JSON.parse(localStorage.getItem("games") || "[]");
+        localStorage.setItem("games", JSON.stringify([...games, quickGame]));
 
         navigate("/quick_game/play");
     };
 
     return (
         <div>
-
             {/* APP TITLE */}
             <div className="app-title">
                 <h1>Diceverse</h1>
@@ -138,7 +137,7 @@ export function QuickGameCreate() {
                                 checked={isRoulette}
                                 onChange={(e) => setIsRoulette(e.target.checked)}
                             />
-                            <label htmlFor="roulette">Roulette Mode</label>
+                            <label htmlFor="roulette">Roulette</label>
                         </div>
 
                         <button className="create-dice-btn" onClick={createDice}>
