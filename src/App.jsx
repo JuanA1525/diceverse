@@ -13,6 +13,7 @@ import { QuickGamePlay } from "./pages/quick_game/Play";
 import { Help } from "./pages/help/Index";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
+import { Play } from "./pages/games/Play";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
 
           {/* Help */}
           <Route path="/pages/help/index" element={<Help />} />
+
+          {/* Play Game */}
+          <Route path="/pages/games/play" element={<Play />} />
         </Routes>
       </div>
     </>

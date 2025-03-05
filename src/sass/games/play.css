@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap");
+.roll-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  width: 70%;
+  margin: 0 auto;
+  font: 1.2em "Poppins", sans-serif;
+  color: #f8f8f8;
+  text-decoration: none;
+  background: #000000;
+  margin-top: 2em;
+  padding: 0.5em;
+}
+.roll-button img {
+  width: 2em;
+  height: 2em;
+  padding: 0.4em;
+  margin-left: 0.5em;
+}
+
+.main-content {
+  margin: 0 1em;
+}
+
+.dices-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2em 0;
+  max-height: 50vh;
+  padding: 2em;
+  gap: 1em;
+  background: #ccc;
+  border-radius: 1em;
+  overflow-y: auto;
+}/*# sourceMappingURL=play.css.map */
