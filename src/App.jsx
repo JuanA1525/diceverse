@@ -7,6 +7,7 @@ import { CreateDices } from "./pages/dices/Create";
 import { Games } from "./pages/games/Index";
 import { CreateGames } from "./pages/games/Create";
 import { QuickGameCreate } from "./pages/quick_game/Create";
+import { QuickGamePlay } from "./pages/quick_game/Play";
 import { Help } from "./pages/help/Index";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
@@ -30,6 +31,7 @@ function App() {
 
           {/* Quick Game */}
           <Route path="/quick_game/create" element={<QuickGameCreate />} />
+          <Route path="/quick_game/play" element={<QuickGamePlay />} />
 
           {/* Help */}
           <Route path="/pages/help/index" element={<Help />} />

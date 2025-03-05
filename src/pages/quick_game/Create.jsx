@@ -21,7 +21,7 @@ export function QuickGameCreate() {
 
     const createDice = () => {
         console.log("Creating Quick Game:", { name: diceName, options });
-        navigate("/pages/quick_game/play");
+        navigate("/quick_game/play");
     };
 
     return (
