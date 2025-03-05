@@ -38,11 +38,9 @@ export function Games() {
           {games.length > 0 ? (
             games.map((game) => (
               <Game
-                key={game.id}
-                page={`/pages/games/play/${game.name}`}
+                key={game.name}
                 name={game.name}
-                imgSrc={diceIcon}
-                imgAlt={game.name}
+                dices={game.dices}
               />
             ))
           ) : (
