@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://JuanA1525.github.io/Diceverse",
+  "homepage": "https://JuanA1525.github.io/diceverse",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
