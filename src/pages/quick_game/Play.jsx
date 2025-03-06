@@ -6,7 +6,7 @@ import "../../sass/quick_game/play.css";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import rollIcon from "../../assets/icons/roll-light.png";
-import Swal from 'sweetalert2' // You'll need to install this: npm install sweetalert2
+import Swal from 'sweetalert2'
 
 export function QuickGamePlay() {
     const navigate = useNavigate();

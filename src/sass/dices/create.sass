@@ -19,7 +19,7 @@ section.main-content
         @include header-title
 
 .main-content
-    padding-bottom: 6em // Add padding at the bottom
+    padding-bottom: 6em
 
 .dice-form
     @include flex-column
@@ -37,8 +37,8 @@ section.main-content
     border-radius: 1em
     @include flex-column
     gap: 1em
-    height: 40vh // Changed from max-height to fixed height
-    overflow: hidden // Changed from overflow-y: auto
+    height: 40vh
+    overflow: hidden
 
     label
         font: bold 1.2em $font-poppins
@@ -74,13 +74,13 @@ section.main-content
 .options-list
     @include flex-column
     gap: 0.8em
-    overflow-y: auto // This is where we want the scroll
-    flex: 1 // Added to take remaining space
+    overflow-y: auto
+    flex: 1
     width: 100%
     padding-right: 0.5em
 
 .option-card-container
-    flex-shrink: 0 // Added to prevent shrinking
+    flex-shrink: 0
     position: relative
     overflow: hidden
     border-radius: 0.8em
@@ -124,7 +124,7 @@ section.main-content
     font: 1.2em $font-poppins
     text-decoration: none
     position: sticky
-    bottom: calc(4em + 1em) // 4em for navbar + 1em spacing
+    bottom: calc(4em + 1em)
     margin: 1em auto
     border-radius: 0.5em
     width: 65%

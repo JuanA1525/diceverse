@@ -18,12 +18,12 @@ export function Play() {
     if (currentGame) {
       const updatedDices = currentGame.dices.map(gameDice => {
         const latestDice = dices.find(d => d.id === gameDice.id);
-        if (!latestDice) return gameDice; // If dice not found, use the one from game
+        if (!latestDice) return gameDice;
 
         return {
           ...latestDice,
           isSelected: false,
-          currentValue: latestDice.currentValue || latestDice.options[0] // Ensure there's a default value
+          currentValue: latestDice.currentValue || latestDice.options[0]
         };
       });
 
