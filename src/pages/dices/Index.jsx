@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DiceCard } from "../../components/DiceCard";
-import "../../sass/global.css";
-import "../../sass/dices/index.css";
+import "../../sass/global.sass";
+import "../../sass/dices/index.sass";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import gamesIcon from "../../assets/icons/games.png";

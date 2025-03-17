@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../sass/global.css";
-import "../../sass/quick_game/create.css";
+import "../../sass/global.sass";
+import "../../sass/quick_game/create.sass";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import createIcon from "../../assets/icons/create-light.png";

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 import PropTypes from "prop-types";
-import "../sass/global.css";
+import "../sass/global.sass";
 
 export function Game({ name, dices }) {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Dice from "../../components/Dice";
-import "../../sass/global.css";
-import "../../sass/quick_game/play.css";
+import "../../sass/global.sass";
+import "../../sass/quick_game/play.sass";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import rollIcon from "../../assets/icons/roll-light.png";

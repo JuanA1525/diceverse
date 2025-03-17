@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "../../sass/global.css";
-import "../../sass/dices/edit.css";
+import "../../sass/global.sass";
+import "../../sass/dices/edit.sass";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import createIcon from "../../assets/icons/create-light.png";

@@ -7,8 +7,8 @@ import flashIcon from "../../assets/icons/flash.png";
 import helpIcon from "../../assets/icons/help.png";
 import logo from "../../assets/logo.png";
 import createIcon from "../../assets/icons/create-light.png";
-import "../../sass/global.css";
-import "../../sass/games/create.css";
+import "../../sass/global.sass";
+import "../../sass/games/create.sass";
 import { SelectableDice } from "../../components/SelectableDice";
 
 export function CreateGames() {

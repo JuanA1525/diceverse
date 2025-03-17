@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../sass/components/selectable-dice.css'
+import '../sass/components/selectable-dice.sass'
 
 export function SelectableDice({ id, isSelected, onClick }) {
     return (

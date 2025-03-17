@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import gamesIcon from "../../assets/icons/games.png";
 import logo from "../../assets/logo.png";
 import createIcon from "../../assets/icons/create-light.png";
-import "../../sass/global.css";
-import "../../sass/games/edit.css";
+import "../../sass/global.sass";
+import "../../sass/games/edit.sass";
 import { SelectableDice } from "../../components/SelectableDice";
 
 export function EditGames() {
@@ -61,11 +61,11 @@ export function EditGames() {
     const updatedGames = games.map((game) =>
       game.name === name
         ? {
-            ...game,
-            name: gameName,
-            dices: selectedDices,
-            isShown: true,
-          }
+          ...game,
+          name: gameName,
+          dices: selectedDices,
+          isShown: true,
+        }
         : game
     );
 

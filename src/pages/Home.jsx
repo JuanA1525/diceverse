@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../sass/global.css";
-import "../sass/index.css";
+import "../sass/global.sass";
+import "../sass/index.sass";
 import logo from "../assets/logo.png";
 import diceIcon from "../assets/icons/dice.png";
 import gamesIcon from "../assets/icons/games.png";

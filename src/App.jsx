@@ -11,7 +11,7 @@ import { EditGames } from "./pages/games/Edit";
 import { QuickGameCreate } from "./pages/quick_game/Create";
 import { QuickGamePlay } from "./pages/quick_game/Play";
 import { Help } from "./pages/help/Index";
-import "./App.css";
+import "./sass/App.sass";
 import { Navbar } from "./components/Navbar";
 import { Play } from "./pages/games/Play";
 

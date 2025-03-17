@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
 import React from "react";
-import "../../sass/global.css";
-import "../../sass/help/index.css";
+import "../../sass/global.sass";
+import "../../sass/help/index.sass";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
 import helpIcon from "../../assets/icons/help.png";

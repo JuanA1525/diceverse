@@ -6,8 +6,8 @@ import homeIcon from "../../assets/icons/home.png";
 import quickGameIcon from "../../assets/icons/flash.png";
 import helpIcon from "../../assets/icons/help.png";
 import createIcon from "../../assets/icons/create-light.png";
-import "../../sass/global.css";
-import "../../sass/games/index.css";
+import "../../sass/global.sass";
+import "../../sass/games/index.sass";
 import { Game } from "../../components/Game";
 import { useState, useEffect } from "react";
 

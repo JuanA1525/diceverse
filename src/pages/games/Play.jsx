@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Dice from "../../components/Dice";
-import "../../sass/games/play.css";
+import "../../sass/games/play.sass";
 import rollIcon from "../../assets/icons/roll-light.png";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
