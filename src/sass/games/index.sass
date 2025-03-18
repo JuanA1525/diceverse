@@ -1,13 +1,13 @@
-@import '../variables'
+@use '../variables'
 
 section.main-content
-    @include section-base
+    @include variables.section-base
     justify-content: center
     height: 60vh
     padding: 0 2em
 
     .main-content-header
-        @include flex-center
+        @include variables.flex-center
         margin-top: 1em
         width: 100%
 
@@ -15,20 +15,20 @@ section.main-content
             width: 20%
 
         h2
-            @include header-title
+            @include variables.header-title
 
     .main-content-games
-        @include flex-column
+        @include variables.flex-column
         justify-content: center
         align-items: center
         height: 50vh
         padding: 1em
         margin: 2em 0
         gap: 1em
-        background: $secondary
+        background: variables.$secondary
         border-radius: 1em
         width: 100%
-        @include scrollable-container
+        @include variables.scrollable-container
 
 .game-card-container
     position: relative
@@ -38,15 +38,15 @@ section.main-content
     width: 100%
 
 .game-card
-    @include flex-center
+    @include variables.flex-center
     justify-content: space-between
     text-decoration: none
     width: 100%
-    @include card-base
+    @include variables.card-base
     transform: translateX(0)
     transition: transform 0.3s ease
     cursor: pointer
-    background: $white // Ensure card has white background
+    background: variables.$white // Ensure card has white background
     position: relative // Add this
     z-index: 1 // Add this
 
@@ -54,8 +54,8 @@ section.main-content
         transform: translateX(-100px)
 
     h3
-        font: bold 1.1em $font-poppins
-        color: $black
+        font: bold 1.1em variables.$font-poppins
+        color: variables.$black
 
     > img
         width: 30%
@@ -68,22 +68,22 @@ section.main-content
     height: 100%
     width: 100px
     background: #00b4d8 // Changed to cyan
-    color: $white
-    @include flex-center
+    color: variables.$white
+    @include variables.flex-center
     padding: 0 1em
-    font: 1em $font-poppins
+    font: 1em variables.$font-poppins
     border-radius: 0 0.8em 0.8em 0
 
 .create-button
-    @include flex-center
+    @include variables.flex-center
     border-radius: 0.5em
     width: 65%
     margin: 0 auto
     padding: 0.5em
-    font: 1.2em $font-poppins
-    color: $light
+    font: 1.2em variables.$font-poppins
+    color: variables.$light
     text-decoration: none
-    background: $black
+    background: variables.$black
 
     > img
         width: 2em
