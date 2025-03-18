@@ -1,4 +1,4 @@
-@import 'variables'
+@use 'variables'
 
 *
     margin: 0
@@ -6,39 +6,39 @@
     box-sizing: border-box
 
 body
-    font-family: $font-poppins
+    font-family: variables.$font-poppins
     font-size: 1rem
     line-height: 1.6
-    color: $dark
-    background-color: $light
+    color: variables.$dark
+    background-color: variables.$light
 
 .navbar
     position: fixed
     bottom: 0
-    @include flex-center
+    @include variables.flex-center
     z-index: 1000
     width: 100%
-    background-color: $gray
-    box-shadow: $shadow
+    background-color: variables.$gray
+    box-shadow: variables.$shadow
 
     a
-        @include flex-center
+        @include variables.flex-center
         width: 20%
         text-decoration: none
-        background: $gray
+        background: variables.$gray
 
         > img
             width: 80%
-            @include image-aspect
+            @include variables.image-aspect
             padding: 0.5em
 
 .app-title
-    @include flex-center
+    @include variables.flex-center
     padding: 2em 0
     width: 100%
 
     h1
-        font: bold 3em $font-pixelify
+        font: bold 3em variables.$font-pixelify
         text-transform: uppercase
 
     > img
