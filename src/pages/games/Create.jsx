@@ -10,6 +10,7 @@ import createIcon from "../../assets/icons/create-light.png";
 import "../../sass/global.sass";
 import "../../sass/games/create.sass";
 import { SelectableDice } from "../../components/SelectableDice";
+import Swal from "sweetalert2";
 
 export function CreateGames() {
   const navigate = useNavigate();
@@ -30,19 +31,31 @@ export function CreateGames() {
 
   const createGame = () => {
     if (!gameName.trim()) {
-      alert("Please enter a game name");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter a name for the game!",
+      });
       return;
     }
 
     if (selectedDices.length === 0) {
-      alert("Please select at least one dice");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please select at least one dice for the game!",
+      });
       return;
     }
 
     const games = JSON.parse(localStorage.getItem("games") || "[]");
 
     if (games.some((game) => game.name === gameName)) {
-      alert("A game with this name already exists!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "A game with this name already exists!",
+      });
       return;
     }
 
