@@ -1,53 +1,53 @@
-@import 'variables'
+@use 'variables'
 
 section.main-content
-    @include section-base
+    @include variables.section-base
     justify-content: center
     height: 60vh
 
     .main-content__header
-        @include flex-center
+        @include variables.flex-center
         margin-top: 1em
         width: 100%
 
         > img
             width: 20%
-            @include image-aspect
+            @include variables.image-aspect
 
         h2
-            @include header-title
+            @include variables.header-title
 
     .main-content__games
-        @include flex-column
+        @include variables.flex-column
         align-items: center
         width: 100%
         margin: 2em 0 0 0
         border-radius: 2em
         padding: 1em
         gap: 0.8em
-        background: $secondary
+        background: variables.$secondary
 
         h2
             margin: 1em 0
-            font: bold 1.2em $font-poppins
+            font: bold 1.2em variables.$font-poppins
             color: rgba(0, 0, 0, 0.3)
 
         .game-card
-            @include flex-center
+            @include variables.flex-center
             justify-content: space-between
             text-decoration: none
             width: 100%
-            @include card-base
+            @include variables.card-base
 
             h3
-                font: bold 1.5em $font-poppins
-                color: $black
+                font: bold 1.5em variables.$font-poppins
+                color: variables.$black
 
             > img
                 width: 20%
 
 .copyright
-    @include flex-center
+    @include variables.flex-center
     width: 100%
-    font: 1em $font-poppins
+    font: 1em variables.$font-poppins
     color: rgba(0, 0, 0, 0.5)
