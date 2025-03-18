@@ -1,21 +1,21 @@
-@import '../variables'
+@use '../variables'
 
 section.main-content
-    @include section-base
+    @include variables.section-base
     justify-content: center
     height: 70vh
 
     .main-content__header
-        @include flex-center
+        @include variables.flex-center
         margin-top: 1em
         width: 100%
 
         > img
             width: 20%
-            @include image-aspect
+            @include variables.image-aspect
 
         h2
-            @include header-title
+            @include variables.header-title
 
     .main-content__dices
         display: flex
@@ -29,12 +29,12 @@ section.main-content
         padding: 1em
         border-radius: 1em
         margin: 2em 0
-        box-shadow: $shadow
-        background: $secondary
-        @include scrollable-container
+        box-shadow: variables.$shadow
+        background: variables.$secondary
+        @include variables.scrollable-container
 
         .dice-card
-            @include flex-center
+            @include variables.flex-center
             flex-wrap: wrap
             justify-content: center
             align-items: center
@@ -43,7 +43,7 @@ section.main-content
             height: auto
             overflow: hidden
             font-size: 0.8em
-            background: $white
+            background: variables.$white
             padding: 1em
             border-radius: 1em
             aspect-ratio: 1/1
@@ -56,37 +56,37 @@ section.main-content
 
             &.selected
                 transform: scale(1.05)
-                border: 2px solid $primary
+                border: 2px solid variables.$primary
 
             h3
-                font: bold 1.3em $font-poppins
+                font: bold 1.3em variables.$font-poppins
                 text-align: center
-                color: $black
+                color: variables.$black
 
             .current-value
                 position: absolute
                 bottom: 0.5em
                 right: 0.5em
-                font: bold 1em $font-poppins
-                color: $primary
+                font: bold 1em variables.$font-poppins
+                color: variables.$primary
 
 .copyright
-    @include flex-center
+    @include variables.flex-center
     width: 100%
-    font: 1em $font-poppins
+    font: 1em variables.$font-poppins
     color: rgba(0, 0, 0, 0.5)
 
 .create-button
-    @include flex-center
+    @include variables.flex-center
     border-radius: 0.5em
     width: 55%
     margin: 0 auto
-    font: 1.2em $font-poppins
-    color: $light
+    font: 1.2em variables.$font-poppins
+    color: variables.$light
     text-decoration: none
-    background: $black
+    background: variables.$black
 
     > img
         width: 25%
-        @include image-aspect
+        @include variables.image-aspect
         padding: 0.5em
