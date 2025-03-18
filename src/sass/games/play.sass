@@ -1,4 +1,4 @@
-@import '../variables'
+@use '../variables'
     
 .roll-button
     display: flex
@@ -7,10 +7,10 @@
     border-radius: 0.5em
     width: 70%
     margin: 0 auto
-    font: 1.2em $font-poppins
-    color: $light
+    font: 1.2em variables.$font-poppins
+    color: variables.$light
     text-decoration: none
-    background: $black
+    background: variables.$black
     margin-top: 2em
     padding: 0.5em
 
@@ -32,6 +32,6 @@
     max-height: 50vh
     padding: 2em
     gap: 1em
-    background: $secondary
+    background: variables.$secondary
     border-radius: 1em
     overflow-y: auto 
