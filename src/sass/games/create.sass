@@ -1,26 +1,26 @@
-@import '../variables'
+@use '../variables'
 
 section.main-content
-    @include flex-column
+    @include variables.flex-column
     align-items: center
     justify-content: flex-start
     min-height: 60vh
     padding: 0 2em
 
 .main-content-header
-    @include flex-center
+    @include variables.flex-center
     width: 100%
 
     > img
         width: 20%
-        @include image-aspect
+        @include variables.image-aspect
 
     h2
-        @include header-title
+        @include variables.header-title
 
 .dice-selection
     width: 100%
-    background: $secondary
+    background: variables.$secondary
     padding: 1em
     border-radius: 1em
     margin-top: 0
@@ -28,7 +28,7 @@ section.main-content
     overflow: hidden
 
     h3
-        font: bold 1.2em $font-poppins
+        font: bold 1.2em variables.$font-poppins
         color: rgba(0, 0, 0, 0.7)
         margin-bottom: 1em
         text-align: center
@@ -49,46 +49,46 @@ section.main-content
     width: 100%
     max-width: 90px
     aspect-ratio: 1/1
-    background: $white
+    background: variables.$white
     padding: 0.5em
     border-radius: 0.8em
-    @include flex-center
+    @include variables.flex-center
     cursor: pointer
     transition: background-color 0.3s ease
 
     h4
-        font: bold 0.8em $font-poppins
-        color: $black
+        font: bold 0.8em variables.$font-poppins
+        color: variables.$black
         text-align: center
 
     &.selected
-        background: $dark
+        background: variables.$dark
 
         h4
-            color: $white
+            color: variables.$white
 
 .create-game-btn
-    @include flex-center
-    @include button-base
+    @include variables.flex-center
+    @include variables.button-base
     gap: 0.5em
     width: 70%
     margin: 2em auto 0
     padding: 0.8em
-    background: $black
+    background: variables.$black
     border-radius: 0.5em
-    color: $light
-    font: 1.2em $font-poppins
+    color: variables.$light
+    font: 1.2em variables.$font-poppins
 
     img
         width: 1.5em
         height: 1.5em
 
 .game-form
-    @include flex-column
+    @include variables.flex-column
     gap: 1.5em
     width: 100%
     margin-top: 2em
 
 .game-name-input
-    @include input-base
-    background: $secondary
+    @include variables.input-base
+    background: variables.$secondary
