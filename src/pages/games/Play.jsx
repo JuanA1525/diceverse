@@ -5,6 +5,7 @@ import "../../sass/games/play.sass";
 import rollIcon from "../../assets/icons/roll-light.png";
 import logo from "../../assets/logo.png";
 import diceIcon from "../../assets/icons/dice.png";
+import Swal from "sweetalert2";
 
 export function Play() {
   const { name } = useParams();
@@ -16,20 +17,20 @@ export function Play() {
     const currentGame = games.find((g) => g.name === name);
 
     if (currentGame) {
-      const updatedDices = currentGame.dices.map(gameDice => {
-        const latestDice = dices.find(d => d.id === gameDice.id);
+      const updatedDices = currentGame.dices.map((gameDice) => {
+        const latestDice = dices.find((d) => d.id === gameDice.id);
         if (!latestDice) return gameDice;
 
         return {
           ...latestDice,
           isSelected: false,
-          currentValue: latestDice.currentValue || latestDice.options[0]
+          currentValue: latestDice.currentValue || latestDice.options[0],
         };
       });
 
       setGame({
         ...currentGame,
-        dices: updatedDices
+        dices: updatedDices,
       });
     }
   }, [name]);
@@ -48,19 +49,40 @@ export function Play() {
     if (!game) return;
 
     // Check if any dice is selected
-    const hasSelectedDices = game.dices.some(dice => dice.isSelected);
+    const hasSelectedDices = game.dices.some((dice) => dice.isSelected);
+
+    if (!hasSelectedDices) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please select at least one dice to roll!",
+      });
+      return;
+    }
+
+    //Rolling dices alert
+    Swal.fire({
+      title: "Rolling dices...",
+      text: "Wait a moment while we roll the dices for you!",
+      icon: "info",
+      iconHtml:
+        '<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmE0MGJoN3FhMDB2dWVxa3hobjJyanBvY3J4MHkybmhuZzhlYmwxNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OOn7N4CfPuUTmNqFD7/giphy.gif" width="100px" />',
+      timer: 1000,
+      showConfirmButton: false,
+    });
 
     setGame({
       ...game,
       dices: game.dices.map((dice) => {
-        // If no dices are selected, roll all dices
         // If some are selected, only roll selected ones
         if (!hasSelectedDices || dice.isSelected) {
           return {
             ...dice,
-            currentValue: dice.options[Math.floor(Math.random() * dice.options.length)]
+            currentValue:
+              dice.options[Math.floor(Math.random() * dice.options.length)],
           };
         }
+
         return dice;
       }),
     });
@@ -85,11 +107,7 @@ export function Play() {
 
         <div className="dices-container">
           {game.dices.map((dice) => (
-            <Dice
-              key={dice.id}
-              {...dice}
-              toggleSeleccion={toggleSeleccion}
-            />
+            <Dice key={dice.id} {...dice} toggleSeleccion={toggleSeleccion} />
           ))}
         </div>
         <button onClick={rollDices} className="roll-button">
