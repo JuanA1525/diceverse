@@ -1,58 +1,59 @@
-@import '../variables'
+@use "sass:color"
+@use '../variables'
 
 section.main-content
-    @include flex-column
+    @include variables.flex-column
     align-items: center
     justify-content: flex-start
     min-height: 60vh
     padding: 0 2em
 
 .main-content__header
-    @include flex-center
+    @include variables.flex-center
     width: 100%
 
     > img
         width: 20%
-        @include image-aspect
+        @include variables.image-aspect
 
     h2
-        @include header-title
+        @include variables.header-title
 
 .main-content
     padding-bottom: 6em // Add padding at the bottom
 
 .dice-form
-    @include flex-column
+    @include variables.flex-column
     gap: 1.5em
     width: 100%
     margin-top: 2em
 
 .dice-name-input
-    @include input-base
-    background: $secondary
+    @include variables.input-base
+    background: variables.$secondary
 
 .options-container
-    background: $secondary
+    background: variables.$secondary
     padding: 1.5em
     border-radius: 1em
-    @include flex-column
+    @include variables.flex-column
     gap: 1em
     max-height: 40vh
     overflow-y: auto
 
     label
-        font: bold 1.2em $font-poppins
+        font: bold 1.2em variables.$font-poppins
         color: rgba(0, 0, 0, 0.7)
 
 .option-input-group
-    @include grid-container
+    @include variables.grid-container
     grid-template-columns: 5fr 1fr
     align-items: center
 
 .option-input
-    @include input-base
+    @include variables.input-base
     border-radius: 0.8em
-    background: $white
+    background: variables.$white
     height: 3em
 
 .add-option-btn
@@ -61,9 +62,9 @@ section.main-content
     min-width: 4em
     border: none
     border-radius: 50%
-    background: $black
+    background: variables.$black
     cursor: pointer
-    @include flex-center
+    @include variables.flex-center
     padding: 0.6em
 
     img
@@ -72,7 +73,7 @@ section.main-content
         object-fit: contain
 
 .options-list
-    @include flex-column
+    @include variables.flex-column
     gap: 0.8em
     overflow-y: auto
     max-height: 30vh
@@ -84,15 +85,15 @@ section.main-content
     touch-action: pan-y pinch-zoom
 
 .option-card
-    @include card-base
+    @include variables.card-base
     border-radius: 0.8em
-    font: 1em $font-poppins
-    color: $black
+    font: 1em variables.$font-poppins
+    color: variables.$black
     transform: translateX(0)
     transition: transform 0.3s ease
     margin: 0
     z-index: 2
-    background: $white
+    background: variables.$white
     position: relative
 
     &:active
@@ -104,17 +105,17 @@ section.main-content
     top: 0
     height: 100%
     background: #ff4747
-    color: $white
-    @include flex-center
+    color: variables.$white
+    @include variables.flex-center
     padding: 0 1em
-    font: 1em $font-poppins
+    font: 1em variables.$font-poppins
     border-radius: 0 0.8em 0.8em 0
 
 .option-card
-    @include card-base
+    @include variables.card-base
     border-radius: 0.8em
-    font: 1em $font-poppins
-    color: $black
+    font: 1em variables.$font-poppins
+    color: variables.$black
 
 .button-group
     display: flex
@@ -126,13 +127,13 @@ section.main-content
     margin-top: 1em
 
 .update-dice-btn
-    @include flex-center
-    @include button-base
+    @include variables.flex-center
+    @include variables.button-base
     gap: 0.5em
     padding: 1em
-    background: $black
-    color: $white
-    font: 1em $font-poppins
+    background: variables.$black
+    color: variables.$white
+    font: 1em variables.$font-poppins
     text-decoration: none
     flex: 2
 
@@ -141,14 +142,14 @@ section.main-content
         height: 2em
 
 .delete-dice-btn
-    @include flex-center
-    @include button-base
+    @include variables.flex-center
+    @include variables.button-base
     padding: 1em
     background: #ff4747
-    color: $white
-    font: 1em $font-poppins
+    color: variables.$white
+    font: 1em variables.$font-poppins
     text-decoration: none
     flex: 2
 
     &:hover
-        background: darken(#ff4747, 10%)
+        background: color.adjust(#ff4747, $lightness: -10%)
