@@ -10,6 +10,7 @@ import flashIcon from "../../assets/icons/flash.png";
 import helpIcon from "../../assets/icons/help.png";
 import createIcon from "../../assets/icons/create-light.png";
 import { SwipeableOption } from "../../components/SwipeableOption";
+import Swal from "sweetalert2";
 
 export function CreateDices() {
   const [diceName, setDiceName] = useState("");
@@ -37,7 +38,13 @@ export function CreateDices() {
 
     // Check if a dice with this name already exists
     if (dices.some((dice) => dice.id === diceName)) {
-      alert("A dice with this name already exists!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        iconHtml:
+          "<img src='https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTU0OTJldmltdGFjNHlnczc0b25zYWRpbDhlNTBmYXRvanB5cjJiZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nR4L10XlJcSeQ/giphy.gif'/>",
+        text: "A dice with this name already exists!",
+      });
       return;
     }
 
@@ -45,6 +52,16 @@ export function CreateDices() {
       determineType(options) === "number"
         ? options.map((opt) => Number(opt))
         : options;
+
+    if (!diceName.trim()) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        iconHtml: "🎲",
+        text: "Please enter a name for the dice!",
+      });
+      return;
+    }
 
     const newDice = {
       id: diceName,
